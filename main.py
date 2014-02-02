@@ -13,8 +13,13 @@ class PyMain:
         self.screen = pygame.display.set_mode((self.width, self.height))
         sprite1 = sprite_class()
         self.image = sprite1.return_sprite('player.bmp')
+<<<<<<< HEAD
         self.background = pygame.image.load("background.bmp")
         self.imgPos = sprite1.position_sprite(0,0)
+=======
+        self.background=pygame.image.load("background.bmp")
+        self.imgPos = [0,0]
+>>>>>>> 207bfde351e17b8344e1940a14a522bacb2e404f
         self.fps = 30
         self.fpsTime = pygame.time.Clock()
            
@@ -49,7 +54,11 @@ class sprite_class(object):
      
     def position_sprite(self, posx, posy):
         self.pos = [posx, posy]
+<<<<<<< HEAD
         return self.pos
+=======
+        return pos
+>>>>>>> 207bfde351e17b8344e1940a14a522bacb2e404f
            
          
 if __name__ == "__main__":
