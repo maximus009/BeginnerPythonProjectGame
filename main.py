@@ -11,29 +11,22 @@ class PyMain:
         self.height = height
         pygame.display.set_caption('CSPSP Clone in Python')
         self.screen = pygame.display.set_mode((self.width, self.height))
-        self.background = pygame.image.load('background.bmp').convert()
+        self.image = pygame.image.load('player.jpg')
+        
      
     def MainLoop(self):
-        player = Sprite(64,64)
-        while 1:
+        self.screen.blit(self.image, (10, 10))
+        while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-                    pygame.display.update()
+            pygame.display.update()
      
 class Human(object): #create the class of humans
     def __init__(self, health, speed, weapon):
          self.health = health
          self.speed = speed
          self.weapon = weapon
-     
-class Sprite(pygame.sprite.Sprite):
-    def __init__(self, width, height):
-        pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('player.bmp').convert()
-        self.rect = self.image.get_rect() 
-        self.rect.topleft = [0, 0] 
-        PyMain.screen.blit(self.image, self.rect)
      
 if __name__ == "__main__":
     MainWindow = PyMain()
