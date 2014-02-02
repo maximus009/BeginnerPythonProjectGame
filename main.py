@@ -20,11 +20,18 @@ class PyMain:
            
          
     def MainLoop(self):
+        self.screen.blit(self.background, (0,0))
+        self.screen.blit(self.image, (self.imgPos[0],10))
         while True:
-            keyboard=pygame.key.get_pressed()
-            if keyboard[K_RIGHT]:
+            keyboard=pygame.key.get_pressed() #keyboard
+            if keyboard[K_RIGHT]: #if key right is pressed
                 if self.imgPos[0] < 320:
                     self.imgPos[0] += 1
+                    self.screen.blit(self.background, (0,0))
+                    self.screen.blit(self.image, (self.imgPos[0],10))
+            if keyboard[K_LEFT]: #if key left is pressed
+                if self.imgPos[0] < 320:
+                    self.imgPos[0] -= 1
                     self.screen.blit(self.background, (0,0))
                     self.screen.blit(self.image, (self.imgPos[0],10))
      
