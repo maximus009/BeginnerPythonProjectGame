@@ -29,22 +29,22 @@ class PyMain:
 
             if self.imgPos[0] >= 640 :
                 self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-            if keyboard[K_RIGHT]:
+            if keyboard[K_RIGHT] or keyboard[K_d]:
                 self.backPos[0] += 5
                 self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
-            if keyboard[K_LEFT]:
+            if keyboard[K_LEFT] or keyboard[K_a]:
                 self.backPos[0] -= 5
                 self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
-            if keyboard[K_UP]:
+            if keyboard[K_UP] or keyboard[K_w]:
                 self.backPos[1] -= 5
                 self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
-            if keyboard[K_DOWN]:
+            if keyboard[K_DOWN] or keyboard[K_s]:
                 self.backPos[1] += 5
                 self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
