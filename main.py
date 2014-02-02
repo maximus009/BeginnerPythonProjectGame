@@ -20,12 +20,30 @@ class PyMain:
            
          
     def MainLoop(self):
+        self.screen.blit(self.background, (0,0))
+        self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+
         while True:
-     
-            if self.imgPos[0] < 320:
+            keyboard=pygame.key.get_pressed()
+            if keyboard[K_RIGHT]:
                 self.imgPos[0] += 1
                 self.screen.blit(self.background, (0,0))
-                self.screen.blit(self.image, (self.imgPos[0],10))
+                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+
+            if keyboard[K_LEFT]:
+                self.imgPos[0] -= 1
+                self.screen.blit(self.background, (0,0))
+                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+
+            if keyboard[K_UP]:
+                self.imgPos[1] -= 1
+                self.screen.blit(self.background, (0,0))
+                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+
+            if keyboard[K_DOWN]:
+                self.imgPos[1] += 1
+                self.screen.blit(self.background, (0,0))
+                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
      
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
