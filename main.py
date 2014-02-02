@@ -15,61 +15,41 @@ class PyMain:
         self.image = sprite1.return_sprite('player.bmp')
         self.background = pygame.image.load("background.bmp")
         self.imgPos = sprite1.position_sprite(0,0)
-        self.backPos = [0,0]
         self.fps = 30
         self.fpsTime = pygame.time.Clock()
            
          
     def MainLoop(self):
-        self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+        self.screen.blit(self.background, (0,0))
         self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+        cat_lol = 0
 
         while True:
             keyboard=pygame.key.get_pressed()
+
+            if self.imgPos[0] >= 640 :
+                cat_lol = (640-self.imgPos[0])
+                self.screen.blit(self.background, (0-cat_lol,0))
             if keyboard[K_RIGHT]:
                 self.imgPos[0] += 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+                self.screen.blit(self.background, (0-cat_lol,0))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
             if keyboard[K_LEFT]:
                 self.imgPos[0] -= 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+                self.screen.blit(self.background, (0-cat_lol,0))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
             if keyboard[K_UP]:
                 self.imgPos[1] -= 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+                self.screen.blit(self.background, (0-cat_lol,0))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
             if keyboard[K_DOWN]:
                 self.imgPos[1] += 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+                self.screen.blit(self.background, (0-cat_lol,0))
                 self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
-
-            if self.imgPos[0] > 640:
-                #Move background to the right.
-                self.backPos[0] += 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
-
-            elif self.imgPos[0] < 0:
-                #Move background to the left.
-                self.backPos[0] -= 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
-
-            if self.imgPos[1] > 480:
-                #Move background up
-                self.backPos[1] -= 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
-
-            elif self.imgPos[1] < 0:
-                #Move background down.
-                self.backPos[1] += 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
-
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
