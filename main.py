@@ -52,11 +52,11 @@ class PyMain:
                 self.backPos4[1] = self.backPos[1]
                 self.backPos4[0] = 1920 + self.backPos[0]
 
-            if (keyboard[K_RIGHT] or keyboard[K_d]) and (self.backPos[0] < 0):
-                self.backPos[0] += 5
-
-            if keyboard[K_LEFT] or keyboard[K_a]:
+            if (keyboard[K_RIGHT] or keyboard[K_d]) and (self.backPos[0] > -1920):
                 self.backPos[0] -= 5
+
+            if (keyboard[K_LEFT] or keyboard[K_a]) and (self.backPos[0] < 0):
+                self.backPos[0] += 5
 
             if keyboard[K_UP] or keyboard[K_w]:
                 self.backPos[1] -= 5
