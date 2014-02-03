@@ -33,8 +33,7 @@ class PyMain:
         self.fpsTime = pygame.time.Clock()
            
     def MainLoop(self): #main loop
-        self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-        self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+        print_screen(self)
         self.backPos2[0] = 640
 
         while True:
