@@ -16,10 +16,13 @@ class PyMain:
         self.screen = pygame.display.set_mode((self.width, self.height))
         sprite1 = sprite_class()
         back1 = sprite_class()
+        back2 = sprite_class()
         self.image = sprite1.return_sprite('assets/player.bmp')
         self.background = back1.return_sprite("assets/background.bmp")
+        self.background2 = back2.return_sprite("assets/background2.bmp")
         self.imgPos = sprite1.position_sprite(255,145)
         self.backPos = [0,0]
+        self.backPos2 = [0,0]
         self.fps = 30
         self.fpsTime = pygame.time.Clock()
            
@@ -27,12 +30,15 @@ class PyMain:
     def MainLoop(self): #main loop
         self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
         self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+        self.backPos2[0] = 640
 
         while True:
             keyboard=pygame.key.get_pressed()
-
-            if self.imgPos[0] >= 640 :
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+            
+            if self.backPos[0] < 0:
+                self.backPos2[1] = self.backPos[1]
+                self.backPos2[0] = 640 + self.backPos[0]
+                self.screen.blit(self.background2, (self.backPos2[0],self.backPos2[1]))
             if keyboard[K_RIGHT] or keyboard[K_d]:
                 self.backPos[0] += 5
                 self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
