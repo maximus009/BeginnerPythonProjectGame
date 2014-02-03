@@ -36,3 +36,9 @@ class sprite_class(object):
         self.pos = [posx, posy]
         return self.pos
 
+def print_screen(self):
+        self.screen.blit(self.background2, (self.backPos2[0],self.backPos2[1]))
+        self.screen.blit(self.background3, (self.backPos3[0],self.backPos3[1]))
+        self.screen.blit(self.background4, (self.backPos4[0],self.backPos4[1]))
+        self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+        self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))

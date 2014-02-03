@@ -32,7 +32,6 @@ class PyMain:
         self.fps = 60
         self.fpsTime = pygame.time.Clock()
            
-         
     def MainLoop(self): #main loop
         self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
         self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
@@ -64,12 +63,8 @@ class PyMain:
 
             if keyboard[K_DOWN] or keyboard[K_s]:
                 self.backPos[1] += 5
-                
-            self.screen.blit(self.background2, (self.backPos2[0],self.backPos2[1]))
-            self.screen.blit(self.background3, (self.backPos3[0],self.backPos3[1]))
-            self.screen.blit(self.background4, (self.backPos4[0],self.backPos4[1]))
-            self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-            self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+
+            print_screen(self)
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
