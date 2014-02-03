@@ -44,37 +44,32 @@ class PyMain:
             if self.backPos[0] < 0:
                 self.backPos2[1] = self.backPos[1]
                 self.backPos2[0] = 640 + self.backPos[0]
-                self.screen.blit(self.background2, (self.backPos2[0],self.backPos2[1]))
                 
             if self.backPos[0] < 0:
                 self.backPos3[1] = self.backPos[1]
                 self.backPos3[0] = 1280 + self.backPos[0]
-                self.screen.blit(self.background3, (self.backPos3[0],self.backPos3[1]))
 
             if self.backPos[0] < 0:
                 self.backPos4[1] = self.backPos[1]
                 self.backPos4[0] = 1920 + self.backPos[0]
-                self.screen.blit(self.background4, (self.backPos4[0],self.backPos4[1]))
 
             if keyboard[K_RIGHT] or keyboard[K_d]:
                 self.backPos[0] += 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
             if keyboard[K_LEFT] or keyboard[K_a]:
                 self.backPos[0] -= 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
             if keyboard[K_UP] or keyboard[K_w]:
                 self.backPos[1] -= 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
             if keyboard[K_DOWN] or keyboard[K_s]:
                 self.backPos[1] += 5
-                self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-                self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+                
+            self.screen.blit(self.background2, (self.backPos2[0],self.backPos2[1]))
+            self.screen.blit(self.background3, (self.backPos3[0],self.backPos3[1]))
+            self.screen.blit(self.background4, (self.backPos4[0],self.backPos4[1]))
+            self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
+            self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
