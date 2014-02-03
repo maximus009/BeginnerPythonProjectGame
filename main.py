@@ -35,6 +35,7 @@ class PyMain:
         self.fpsTime = pygame.time.Clock()
            
     def MainLoop(self): #main loop
+        sprite1 = Player()
         print_screen(self)
         self.backPos2[0] = 640
 

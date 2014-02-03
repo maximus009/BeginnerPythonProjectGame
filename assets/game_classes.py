@@ -22,14 +22,19 @@ class Player(object): #create the class of the player
     def __init__(self):
         pass
 
-    def jump(self, imgPos):
+    def jump(self, image, imgPos):
         self.imgPos = imgPos
-        if y < 0:
+        velocity = 0
+        gravity = 10
+
+        if self.imgPos[1] < 0:
             pass
         else:
             #jump here
-            for i in range(0,60):
-                self.imgPos[0] +=1
+            velocity = 1000
+            while velocity != 0:
+                self.imgPos[1] -= (velocity / 10)
+                velocity /= gravity
         return True
      
     def return_sprite(self, sprites):
