@@ -58,10 +58,10 @@ class PyMain:
             if (keyboard[K_LEFT] or keyboard[K_a]) and (self.backPos[0] < 0):
                 self.backPos[0] += 5
 
-            if keyboard[K_UP] or keyboard[K_w]:
+            if (keyboard[K_UP] or keyboard[K_w]) and (self.backPos[1] < 0):
                 self.backPos[1] -= 5
 
-            if keyboard[K_DOWN] or keyboard[K_s]:
+            if (keyboard[K_DOWN] or keyboard[K_s]) and (self.backPos[1] > 0):
                 self.backPos[1] += 5
 
             print_screen(self)
