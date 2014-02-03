@@ -18,11 +18,24 @@ cyan = ( 0, 255, 255)
 purple = ( 255, 0 , 255)
 
 
-class Human(object): #create the class of humans
-    def __init__(self, health, speed, weapon):
-        self.health = health
-        self.speed = speed
-        self.weapon = weapon
+class Player(object): #create the class of the player
+    def __init__(self):
+        pass
+
+    def jump(self):
+        if y < 0:
+            pass
+        else:
+            #jump here
+            pass
+     
+    def return_sprite(self, sprites):
+        self.sprites = sprites
+        return pygame.image.load(sprites)
+     
+    def position_sprite(self, posx, posy):
+        self.pos = [posx, posy]
+        return self.pos
      
 class sprite_class(object):
     def __init__(self):
