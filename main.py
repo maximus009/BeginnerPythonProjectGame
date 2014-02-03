@@ -24,7 +24,7 @@ class PyMain:
         self.background2 = back2.return_sprite("assets/background2.bmp")
         self.background3 = back3.return_sprite("assets/background3.bmp")
         self.background4 = back4.return_sprite("assets/background4.bmp")
-        self.imgPos = sprite1.position_sprite(255,145)
+        self.imgPos = sprite1.position_sprite(0,314)
         self.backPos = [0,0]
         self.backPos2 = [0,0]
         self.backPos3 = [0,0]
