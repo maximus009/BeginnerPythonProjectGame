@@ -1,5 +1,8 @@
 import pygame, sys, math, os
 from pygame.locals import *
+sys.path.append(os.getcwd()+'/assets') #add our module to the path python searches
+import game_classes #inport our class module
+from game_classes import * #import all classes and functions
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
      
@@ -56,24 +59,7 @@ class PyMain:
             pygame.display.update()
             self.fpsTime.tick(self.fps)
          
-class Human(object): #create the class of humans
-    def __init__(self, health, speed, weapon):
-        self.health = health
-        self.speed = speed
-        self.weapon = weapon
-     
-class sprite_class(object):
-    def __init__(self):
-        pass
-     
-    def return_sprite(self, sprites):
-        self.sprites = sprites
-        return pygame.image.load(sprites)
-     
-    def position_sprite(self, posx, posy):
-        self.pos = [posx, posy]
-        return self.pos
-           
+#classes stored in /assets/game_classes.py
          
 if __name__ == "__main__":
     MainWindow = PyMain()
