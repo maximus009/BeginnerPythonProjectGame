@@ -17,12 +17,15 @@ class PyMain:
         sprite1 = sprite_class()
         back1 = sprite_class()
         back2 = sprite_class()
+        back3 = sprite_class()
         self.image = sprite1.return_sprite('assets/player.bmp')
         self.background = back1.return_sprite("assets/background.bmp")
         self.background2 = back2.return_sprite("assets/background2.bmp")
+        self.background3 = back3.return_sprite("assets/background3.bmp")
         self.imgPos = sprite1.position_sprite(255,145)
         self.backPos = [0,0]
         self.backPos2 = [0,0]
+        self.backPos3 = [0,0]
         self.fps = 30
         self.fpsTime = pygame.time.Clock()
            
@@ -39,6 +42,10 @@ class PyMain:
                 self.backPos2[1] = self.backPos[1]
                 self.backPos2[0] = 640 + self.backPos[0]
                 self.screen.blit(self.background2, (self.backPos2[0],self.backPos2[1]))
+            if self.backPos[0] < 0:
+                self.backPos3[1] = self.backPos[1]
+                self.backPos3[0] = 1280 + self.backPos[0]
+                self.screen.blit(self.background3, (self.backPos3[0],self.backPos3[1]))
             if keyboard[K_RIGHT] or keyboard[K_d]:
                 self.backPos[0] += 5
                 self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
