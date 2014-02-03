@@ -29,7 +29,7 @@ class PyMain:
         self.backPos2 = [0,0]
         self.backPos3 = [0,0]
         self.backPos4 = [0,0]
-        self.fps = 30
+        self.fps = 60
         self.fpsTime = pygame.time.Clock()
            
          
