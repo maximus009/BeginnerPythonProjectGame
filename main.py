@@ -8,7 +8,7 @@ if not pygame.mixer: print('ERROR: sounds are disabled for this session')
      
 class PyMain:
            
-    def __init__(self, width=640,height=480):
+    def __init__(self, width=640,height=480): #main variable storage
         pygame.init()
         self.width = width
         self.height = height
@@ -24,7 +24,7 @@ class PyMain:
         self.fpsTime = pygame.time.Clock()
            
          
-    def MainLoop(self):
+    def MainLoop(self): #main loop
         self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
         self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
 
@@ -55,12 +55,13 @@ class PyMain:
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    sys.exit()
+                    pygame.quit() #closes pygame
+                    sys.exit() #closes actual program
             pygame.display.update()
             self.fpsTime.tick(self.fps)
          
 #classes stored in /assets/game_classes.py
          
-if __name__ == "__main__":
+if __name__ == "__main__": #if this is the script that was executed then run the main loop
     MainWindow = PyMain()
     MainWindow.MainLoop()
