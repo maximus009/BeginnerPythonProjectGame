@@ -13,8 +13,8 @@ class PyMain:
         self.screen = pygame.display.set_mode((self.width, self.height))
         sprite1 = sprite_class()
         back1 = sprite_class()
-        self.image = sprite1.return_sprite('player.bmp')
-        self.background = back1.return_sprite("background.bmp")
+        self.image = sprite1.return_sprite('assets/player.bmp')
+        self.background = back1.return_sprite("assets/background.bmp")
         self.imgPos = sprite1.position_sprite(255,145)
         self.backPos = [0,0]
         self.fps = 30
