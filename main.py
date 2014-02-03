@@ -63,6 +63,9 @@ class PyMain:
             if (keyboard[K_DOWN] or keyboard[K_s]) and (self.backPos[1] > 0):
                 self.backPos[1] += 5
 
+            if keyboard[K_SPACE]:
+                sprite1.jump(self,self.imgPos)
+
             print_screen(self)
             
             for event in pygame.event.get():

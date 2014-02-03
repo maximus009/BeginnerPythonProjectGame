@@ -22,12 +22,15 @@ class Player(object): #create the class of the player
     def __init__(self):
         pass
 
-    def jump(self):
+    def jump(self, imgPos):
+        self.imgPos = imgPos
         if y < 0:
             pass
         else:
             #jump here
-            pass
+            for i in range(0,60):
+                self.imgPos[0] +=1
+        return True
      
     def return_sprite(self, sprites):
         self.sprites = sprites
