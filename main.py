@@ -14,6 +14,8 @@ class PyMain:
         self.height = height
         pygame.display.set_caption('CSPSP Clone in Python')
         self.screen = pygame.display.set_mode((self.width, self.height))
+        icon = pygame.image.load("assets/icon.bmp").convert_alpha()        
+        pygame.display.set_icon(icon)
         sprite1 = Player()
         back1 = sprite_class()
         back2 = sprite_class()
