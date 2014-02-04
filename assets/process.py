@@ -30,9 +30,9 @@ def keystrokes(player):
 
 def menu(BaseClass, screen, clock, FPS):
     MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
-    Button = BaseClass(320, 240, 80, 20, "assets/images/button.bmp")
+    Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
     screen.blit(MenuImage.image, (0,0) )
-    screen.blit(Button.image, (320,240) )
+    screen.blit(Button.image, (280,230) )
     pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
