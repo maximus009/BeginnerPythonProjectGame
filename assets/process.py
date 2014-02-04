@@ -28,9 +28,7 @@ def keystrokes(player):
         pygame.quit() #closes pygame
         sys.exit() #closes actual program
 
-def menu(BaseClass, screen, clock, FPS):
-    MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
-    Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
+def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
     pygame.display.flip()

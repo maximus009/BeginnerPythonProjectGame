@@ -26,8 +26,9 @@ playing = False
 
 
 background = pygame.image.load("assets/images/background.bmp")
-PlayerYGround = SCREENHEIGHT - 166 #height from bottom according to image size in this case 166
-player = Player(0,PlayerYGround,131,166,"assets/images/player.bmp")
+player = Player(0,SCREENHEIGHT - 166,131,166,"assets/images/player.bmp")
+MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
+Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
 
 
 #-------------Main Program Loop-----------------
@@ -47,7 +48,7 @@ while True:
 
         clock.tick(FPS)
     else:
-        playing = menu(BaseClass, screen, clock, FPS)
+        playing = menu(BaseClass, screen, clock, FPS, MenuImage, Button)
         keystrokes(player)
 
 
