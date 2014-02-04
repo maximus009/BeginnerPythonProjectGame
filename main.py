@@ -18,7 +18,7 @@ pygame.display.set_icon(icon)
 clock = pygame.time.Clock()
 FPS = 60
 
-player = Player(0,100,131,166,"assets/images/player.bmp")
+player = Player(0,314,131,166,"assets/images/player.bmp")
 
 #-------------Main Program Loop-----------------
 while True:
@@ -26,7 +26,7 @@ while True:
 
     #Handles Player Movement
     player.motion(SCREENWIDTH, SCREENHEIGHT)
-    #LOGIC
+
 
     #DRAW
     screen.fill((0,0,0)) #Filling with blakc background for now.

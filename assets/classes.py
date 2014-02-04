@@ -12,11 +12,9 @@ class BaseClass(pygame.sprite.Sprite):
         self.image = pygame.image.load(image_path)
 
         self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
+        self.rect.x, self.rect.y = x, y
+        self.width, self.height = width, height
 
-        self.width = width
-        self.height = height
 
 class Player(BaseClass):
 
@@ -28,8 +26,9 @@ class Player(BaseClass):
         Player.PlayersList.add(self)
 
         #Velocities of movement
-        self.velx = 0
-        self.vely = 0
+        self.velx, self.vely = 0, 0
+        #Will want to add self.standing soon
+        self.jumping, self.go_down = False, False
 
     def motion(self, SCREENWIDTH, SCREENHEIGHT):
 
@@ -38,17 +37,44 @@ class Player(BaseClass):
         predicted_location_x = self.rect.x + self.velx
         predicted_location_y = self.rect.y + self.vely
 
+        #Horizontal Constraints
         if predicted_location_x < 0:
             self.velx = 0
 
         elif predicted_location_x + self.width > SCREENWIDTH:
             self.velx = 0
 
-        if predicted_location_y < 0:
-            self.vely = 0
-
-        elif predicted_location_y + self.height > SCREENHEIGHT:
-            self.vely = 0
 
         self.rect.x += self.velx
         self.rect.y += self.vely
+
+        self.jump(SCREENHEIGHT)
+
+    def jump(self, SCREENHEIGHT):
+
+        #Jump! Jump! Jump!
+
+        max_jump = 640
+
+        if self.jumping:
+            self.vely = 5
+			
+            if self.rect.y > max_jump:
+                print("COndition 1")
+                self.go_down = True
+
+            if self.go_down:
+                print("COndition 2")
+                self.rect.y += self.vely
+
+                predicted_location = self.rect.y + self.vely
+
+                if predicted_location + self.height > SCREENHEIGHT:
+                    print("COndition 4")
+                    self.jumping = False
+                    self.go_down = False
+
+            else:
+                print("COndition 3")
+                self.rect.y -= self.vely
+                print(self.rect.y)
