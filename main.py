@@ -1,7 +1,7 @@
 import pygame, sys, math, os
 from pygame.locals import *
 sys.path.append(os.getcwd()+'/assets') #add our module to the path python searches
-import game_classes #inport our class module
+import game_classes #import our class module
 from game_classes import * #import all classes and functions
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
@@ -18,12 +18,12 @@ class PyMain(pygame.sprite.Sprite):
         icon = pygame.image.load("assets/icon.bmp").convert_alpha()        
         pygame.display.set_icon(icon)
         sprite1 = Player()
-        back1 = sprite_class()
-        back2 = sprite_class()
-        back3 = sprite_class()
-        back4 = sprite_class()
+        back1 = Sprites()
+        back2 = Sprites()
+        back3 = Sprites()
+        back4 = Sprites()
         self.img = sprite1.return_sprite('assets/player.bmp')
-        #self.imgRect = self.image.get_rect() #Gets dimensions of player sprite
+        self.imgRect = self.img.get_rect() #Gets dimensions of player sprite
         self.background = back1.return_sprite("assets/background.bmp")
         self.background2 = back2.return_sprite("assets/background2.bmp")
         self.background3 = back3.return_sprite("assets/background3.bmp")
