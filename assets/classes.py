@@ -62,6 +62,7 @@ class Player(BaseClass):
 
             if self.go_down:
                 self.rect.y += self.vely
+                self.image = pygame.image.load("assets/images/playerjump.bmp")
 
                 predicted_location = self.rect.y + self.vely
 
@@ -71,3 +72,4 @@ class Player(BaseClass):
 
             else:
                 self.rect.y -= self.vely
+                self.image = pygame.image.load("assets/images/playerjump.bmp")
