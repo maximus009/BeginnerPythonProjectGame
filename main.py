@@ -21,6 +21,7 @@ pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
 FPS = 60
+total_frames = 0
 
 
 background = pygame.image.load("assets/images/background.bmp")
@@ -29,6 +30,7 @@ player = Player(0,PlayerYGround,131,166,"assets/images/player.bmp")
 
 #-------------Main Program Loop-----------------
 while True:
+    total_frames += 1 #Putting this at the beginning so other functions can use this.
     keystrokes(player) #Handles Key Commands and Quitting
 
     #Handles Player Movement, including jumping.
@@ -39,7 +41,6 @@ while True:
     screen.blit(background, (0,0) )
     BaseClass.allsprites.draw(screen) #Draws ALL sprites to the screen.
     pygame.display.flip()
-
 
     clock.tick(FPS)
 
