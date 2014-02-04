@@ -22,14 +22,15 @@ player = Player(0,100,131,166,"assets/images/player.bmp")
 while True:
     keystrokes(player) #Handles Key Commands and Quitting
 
-    #LOGIC
+    #Handles Player Movement
     player.motion()
     #LOGIC
 
     #DRAW
-    screen.fill((0,0,0))
-    BaseClass.allsprites.draw(screen)
+    screen.fill((0,0,0)) #Filling with blakc background for now.
+    BaseClass.allsprites.draw(screen) #Draws ALL sprites to the screen.
     pygame.display.flip()
-    #DRAW
+
+
     clock.tick(FPS)
 
