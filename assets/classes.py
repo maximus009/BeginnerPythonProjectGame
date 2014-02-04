@@ -27,7 +27,9 @@ class Player(BaseClass):
         BaseClass.__init__(self, x, y, width, height, image_path)
         Player.PlayersList.add(self)
         self.velx = 0
+        self.vely = 0
 
     def motion(self):
 
         self.rect.x += self.velx
+        self.rect.y += self.vely

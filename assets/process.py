@@ -22,13 +22,13 @@ def keystrokes(player):
         player.velx = 0
 
     if keyboard[pygame.K_UP] or keyboard[pygame.K_w]:
-        pass
+        player.vely = -3
 
     elif keyboard[pygame.K_DOWN] or keyboard[pygame.K_s]:
-        pass
+        player.vely = 3
 
     else:
-        pass
+        player.vely = 0
 
     if keyboard[pygame.K_SPACE]:
         pass
