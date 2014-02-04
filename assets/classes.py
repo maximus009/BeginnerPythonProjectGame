@@ -7,7 +7,7 @@ class BaseClass(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, image_path):
 
         pygame.sprite.Sprite.__init__(self) #initialize sprite class from pygame
-        BaseClass.allsprites.add(self)
+        BaseClass.allsprites.add(self) #Adds sprite to allsprites, and images are displayed in main.py
 
         self.image = pygame.image.load(image_path)
 
@@ -45,7 +45,6 @@ class Player(BaseClass):
 
 
         self.rect.x += self.velx
-        self.rect.y += self.vely
 
         self.jump(SCREENHEIGHT)
 
