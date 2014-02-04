@@ -18,6 +18,8 @@ pygame.display.set_icon(icon)
 clock = pygame.time.Clock()
 FPS = 60
 
+
+background = pygame.image.load("assets/images/background.bmp")
 player = Player(0,314,131,166,"assets/images/player.bmp")
 
 #-------------Main Program Loop-----------------
@@ -29,7 +31,7 @@ while True:
 
 
     #DRAW
-    screen.fill((0,0,0)) #Filling with black background for now.
+    screen.blit(background, (0,0) )
     BaseClass.allsprites.draw(screen) #Draws ALL sprites to the screen.
     pygame.display.flip()
 
