@@ -31,7 +31,24 @@ class Player(BaseClass):
         self.velx = 0
         self.vely = 0
 
-    def motion(self):
+    def motion(self, SCREENWIDTH, SCREENHEIGHT):
+
+        #Predicts where image is going to be placed next to prevent going
+        #Off of the screen a smidge.
+        predicted_location_x = self.rect.x + self.velx
+        predicted_location_y = self.rect.y + self.vely
+
+        if predicted_location_x < 0:
+            self.velx = 0
+
+        elif predicted_location_x + self.width > SCREENWIDTH:
+            self.velx = 0
+
+        if predicted_location_y < 0:
+            self.vely = 0
+
+        elif predicted_location_y + self.height > SCREENHEIGHT:
+            self.vely = 0
 
         self.rect.x += self.velx
         self.rect.y += self.vely

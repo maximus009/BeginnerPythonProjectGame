@@ -25,7 +25,7 @@ while True:
     keystrokes(player) #Handles Key Commands and Quitting
 
     #Handles Player Movement
-    player.motion()
+    player.motion(SCREENWIDTH, SCREENHEIGHT)
     #LOGIC
 
     #DRAW
