@@ -31,10 +31,10 @@ class Player(object): #create the class of the player
             pass
         else:
             #jump here
-            velocity = 1000
+            velocity = 100
             while velocity != 0:
                 self.imgPos[1] -= (velocity / 10)
-                velocity /= gravity
+                velocity -= gravity
         return True
      
     def return_sprite(self, sprites):
