@@ -26,6 +26,8 @@ class Player(BaseClass):
         #Calls BaseClass so images can be loaded, etc..
         BaseClass.__init__(self, x, y, width, height, image_path)
         Player.PlayersList.add(self)
+
+        #Velocities of movement
         self.velx = 0
         self.vely = 0
 

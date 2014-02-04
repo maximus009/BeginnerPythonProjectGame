@@ -2,13 +2,15 @@ import pygame, sys, math, os
 from pygame.locals import *
 sys.path.append(os.getcwd()+'/assets') #add our module to the path python searches
 from classes import * #import our class module
-from process import * #Handles keystrokes
+from process import * #Handles user input and our output
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
 
 pygame.init()
+
 SCREENWIDTH, SCREENHEIGHT = 640, 480
 screen = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT), 0, 32)
+
 pygame.display.set_caption('CSPSP Clone in Python')
 icon = pygame.image.load("assets/images/icon.bmp").convert_alpha()        
 pygame.display.set_icon(icon)
