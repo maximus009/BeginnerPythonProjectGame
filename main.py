@@ -6,7 +6,7 @@ from game_classes import * #import all classes and functions
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
      
-class PyMain(pygame.sprite.Sprite):
+class PyMain():
            
     def __init__(self, width=640,height=480): #main variable storage
         pygame.init()

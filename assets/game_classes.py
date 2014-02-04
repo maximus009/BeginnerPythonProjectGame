@@ -40,7 +40,6 @@ class Player(object): #create the class of the player
      
     def return_sprite(self, sprites):
         self.sprites = sprites
-        #PyMain.allsprites.add(self) #Adds sprite to pygame.sprite.Group()
         return pygame.image.load(sprites)
      
     def position_sprite(self, posx, posy):
