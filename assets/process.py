@@ -21,14 +21,6 @@ def keystrokes(player):
     else:
         player.velx = 0
 
-    if keyboard[pygame.K_UP] or keyboard[pygame.K_w]:
-        player.vely = -5
-
-    elif keyboard[pygame.K_DOWN] or keyboard[pygame.K_s]:
-        player.vely = 5
-
-    else:
-        player.vely = 0
 
     if keyboard[pygame.K_SPACE]:
         pass
