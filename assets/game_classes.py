@@ -1,5 +1,7 @@
 import pygame, sys, math, os
 from pygame.locals import *
+sys.path.append(os.getcwd()+'../')
+import main
 
 '''-------Colors----------------
 This can be used for text and drawn objects not from images
@@ -30,15 +32,16 @@ class Player(object): #create the class of the player
         if self.imgPos[1] < 0:
             pass
         else:
-            #jump here
             velocity = 100
-            while velocity != 0:
-                self.imgPos[1] -= (velocity / 10)
-                velocity -= gravity
+            #while self.imgPos[1] != 0:
+                #self.imgPos[1] -= (velocity / 10)
+                #velocity -= gravity
+            #self.imgPos[0] -= 1
         return True
      
     def return_sprite(self, sprites):
         self.sprites = sprites
+        #PyMain.allsprites.add(self) #Adds sprite to pygame.sprite.Group()
         return pygame.image.load(sprites)
      
     def position_sprite(self, posx, posy):
@@ -62,4 +65,4 @@ def print_screen(self):
         self.screen.blit(self.background3, (self.backPos3[0],self.backPos3[1]))
         self.screen.blit(self.background4, (self.backPos4[0],self.backPos4[1]))
         self.screen.blit(self.background, (self.backPos[0],self.backPos[1]))
-        self.screen.blit(self.image, (self.imgPos[0],self.imgPos[1]))
+        self.screen.blit(self.img, (self.imgPos[0],self.imgPos[1]))

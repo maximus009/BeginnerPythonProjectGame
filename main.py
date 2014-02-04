@@ -6,10 +6,11 @@ from game_classes import * #import all classes and functions
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
      
-class PyMain:
+class PyMain(pygame.sprite.Sprite):
            
     def __init__(self, width=640,height=480): #main variable storage
         pygame.init()
+        pygame.sprite.Sprite.__init__(self) #Initializes the Sprite class from pygame
         self.width = width
         self.height = height
         pygame.display.set_caption('CSPSP Clone in Python')
@@ -21,7 +22,8 @@ class PyMain:
         back2 = sprite_class()
         back3 = sprite_class()
         back4 = sprite_class()
-        self.image = sprite1.return_sprite('assets/player.bmp')
+        self.img = sprite1.return_sprite('assets/player.bmp')
+        #self.imgRect = self.image.get_rect() #Gets dimensions of player sprite
         self.background = back1.return_sprite("assets/background.bmp")
         self.background2 = back2.return_sprite("assets/background2.bmp")
         self.background3 = back3.return_sprite("assets/background3.bmp")
@@ -32,7 +34,7 @@ class PyMain:
         self.backPos3 = [0,0]
         self.backPos4 = [0,0]
         self.fps = 60
-        self.fpsTime = pygame.time.Clock()
+        self.clock = pygame.time.Clock()
            
     def MainLoop(self): #main loop
         sprite1 = Player()
@@ -54,6 +56,8 @@ class PyMain:
                 self.backPos4[1] = self.backPos[1]
                 self.backPos4[0] = 1920 + self.backPos[0]
 
+
+            #Keyboard Commands
             if (keyboard[K_RIGHT] or keyboard[K_d]) and (self.backPos[0] > -1920):
                 self.backPos[0] -= 5
 
@@ -69,14 +73,20 @@ class PyMain:
             if keyboard[K_SPACE]:
                 sprite1.jump(self,self.imgPos)
 
+            if keyboard[K_ESCAPE]:
+                pygame.quit() #closes pygame
+                sys.exit() #closes actual program
+
             print_screen(self)
             
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit() #closes pygame
                     sys.exit() #closes actual program
+
             pygame.display.update()
-            self.fpsTime.tick(self.fps)
+
+            self.clock.tick(self.fps)
          
 #classes stored in /assets/game_classes.py
          
