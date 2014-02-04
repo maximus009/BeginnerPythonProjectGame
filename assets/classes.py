@@ -52,7 +52,7 @@ class Player(BaseClass):
 
         #Jump! Jump! Jump!
 
-        max_jump = 100
+        max_jump = 150
 
         if self.jumping:
             self.vely = 10
