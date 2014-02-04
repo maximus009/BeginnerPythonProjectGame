@@ -32,7 +32,6 @@ player = Player(0,PlayerYGround,131,166,"assets/images/player.bmp")
 
 #-------------Main Program Loop-----------------
 while True:
-    print (playing)
     if playing == True:
         total_frames += 1 #Putting this at the beginning so other functions can use this.
         keystrokes(player) #Handles Key Commands and Quitting
