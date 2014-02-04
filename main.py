@@ -24,7 +24,8 @@ FPS = 60
 
 
 background = pygame.image.load("assets/images/background.bmp")
-player = Player(0,314,131,166,"assets/images/player.bmp")
+PlayerYGround = SCREENHEIGHT - 166 #height from bottom according to image size in this case 166
+player = Player(0,PlayerYGround,131,166,"assets/images/player.bmp")
 
 #-------------Main Program Loop-----------------
 while True:
