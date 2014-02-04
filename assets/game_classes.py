@@ -1,7 +1,6 @@
 import pygame, sys, math, os
 from pygame.locals import *
-sys.path.append(os.getcwd()+'../')
-import main
+
 
 '''-------Colors----------------
 This can be used for text and drawn objects not from images
@@ -48,7 +47,7 @@ class Player(object): #create the class of the player
         self.pos = [posx, posy]
         return self.pos
      
-class sprite_class(object):
+class Sprites(object):
     def __init__(self):
         pass
      
