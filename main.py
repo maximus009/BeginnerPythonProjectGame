@@ -24,12 +24,12 @@ player = Player(0,314,131,166,"assets/images/player.bmp")
 while True:
     keystrokes(player) #Handles Key Commands and Quitting
 
-    #Handles Player Movement
+    #Handles Player Movement, including jumping.
     player.motion(SCREENWIDTH, SCREENHEIGHT)
 
 
     #DRAW
-    screen.fill((0,0,0)) #Filling with blakc background for now.
+    screen.fill((0,0,0)) #Filling with black background for now.
     BaseClass.allsprites.draw(screen) #Draws ALL sprites to the screen.
     pygame.display.flip()
 
