@@ -7,10 +7,6 @@ So far we have a background and sprite displaying.
 
 Controls
 ==========
-W/Up Arrow - Move player up.
-
-S/Down Arrow - Move player down.
-
 A/Left Arrow - Move player left.
 
 D/Right Arrow - Move player right.
@@ -18,3 +14,4 @@ D/Right Arrow - Move player right.
 Space Bar - Jump
 
 ESC - Exit
+
