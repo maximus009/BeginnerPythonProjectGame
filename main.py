@@ -42,6 +42,7 @@ while True:
         player.motion(SCREENWIDTH, SCREENHEIGHT)
 
         #DRAW
+        screen.blit(background, (0,0))
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         Health.draw(screen)
         pygame.display.flip()
