@@ -44,8 +44,8 @@ while True:
 
 
         #DRAW
-        screen.blit(background, (0,0))
-        BorderTile.drawTiles(screen)
+        BorderTile.drawTiles(screen) #Draws border tiles
+        EmptyTile.drawTiles(screen) #Draws walkable tiles
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         pygame.display.flip()
 
