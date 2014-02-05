@@ -64,10 +64,30 @@ class EmptyTile(Tile):
 	def drawTiles(screen):
 
 		for tileNumber in xrange(EmptyTile.tileCount):
-			emmptyTile = EmptyTile.getTile(tileNumber)
+			emptyTile = EmptyTile.getTile(tileNumber)
 			#Draws the tile we just made!
 			#Replace BLACK with image later.
 			pygame.draw.rect(screen, BLACK, emmptyTile)
 
 class BorderTile(Tile):
-	pass
+
+	#Border tiles define the edge of where our character can move.
+
+	tileDict = {}
+	tileCount = 0
+
+	def __init__(self, x, y):
+		super(BorderTile, self).__init__(x,y)
+
+	@staticmethod
+	def getTile(tileNumber):
+		return BorderTile.tileDict.get(tileNumber)
+
+	@staticmethod
+	def drawTiles(screen):
+
+		for tileNumber in xrange(BorderTile.tileCount):
+			borderTile = BorderTile.getTile(tileNumber)
+			#Draws the tile we just made!
+			#Replace BLACK with image later.
+			pygame.draw.rect(screen, RED, emmptyTile)

@@ -4,7 +4,7 @@ sys.path.append(os.getcwd()+'/assets') #add our module to the path python search
 
 from classes import * #import our class module
 from process import * #Handles user input and our output.
-from const import *
+from const import * #All constants are held in here.
 
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
