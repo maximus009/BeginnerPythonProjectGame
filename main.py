@@ -5,7 +5,7 @@ sys.path.append(os.getcwd()+'/assets') #add our module to the path python search
 import classes #import our class module
 import process
 from classes import * #import our class module
-from process import * #Handles user input and our output
+from process import * #Handles user input and our output.
 
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
@@ -50,5 +50,3 @@ while True:
     else:
         playing = menu(BaseClass, screen, clock, FPS, MenuImage, Button)
         keystrokes(player)
-
-
