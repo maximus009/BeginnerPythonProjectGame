@@ -27,6 +27,10 @@ class Tile(pygame.Rect):
 			raise ValueError #Will give an error if tile is not on the grid.
 
 	@staticmethod
+	def preInit():
+		pass
+
+	@staticmethod
 	def getTile(tileNumber):
 		#tileNumber is the key in tileDict
 		return Tile.tileDict.get(tileNumber)
@@ -64,3 +68,6 @@ class EmptyTile(Tile):
 			#Draws the tile we just made!
 			#Replace BLACK with image later.
 			pygame.draw.rect(screen, BLACK, emmptyTile)
+
+class BorderTile(Tile):
+	pass
