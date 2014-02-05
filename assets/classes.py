@@ -59,21 +59,9 @@ class Player(BaseClass):
 			
             if self.rect.y <= max_jump:
                 self.go_down = True
-                if self.velx < 0:
-                    self.image = pygame.image.load("assets/images/playerflippedjump.bmp")
-                elif self.velx == 0:
-                    pass
-                else:
-                    self.image = pygame.image.load("assets/images/playerjump.bmp")
 
             if self.go_down:
                 self.rect.y += self.vely
-                if self.velx < 0:
-                    self.image = pygame.image.load("assets/images/playerflippedjump.bmp")
-                elif self.velx == 0:
-                    pass
-                else:
-                    self.image = pygame.image.load("assets/images/playerjump.bmp")
 
                 predicted_location = self.rect.y + self.vely
 
@@ -82,8 +70,6 @@ class Player(BaseClass):
                     self.go_down = False
                     if self.velx < 0:
                         self.image = pygame.image.load("assets/images/playerflipped.bmp")
-                    elif self.velx == 0:
-                        pass
                     else:  
                         self.image = pygame.image.load("assets/images/player.bmp")
 
