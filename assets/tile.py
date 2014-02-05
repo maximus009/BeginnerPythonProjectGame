@@ -30,25 +30,25 @@ class Tile(pygame.Rect):
 	def preInit():
 		#Initilize and BorderTiles and EmptyTiles before the game 
 
-		#Top Border
-		for x in range(0,SCREENWIDTH*HMS, TW):
+		# Top Border
+		for x in xrange(0, SCREENWIDTH*HMS, TW):
 			BorderTile(x, 0)
 
-		#Middle Section
-		for y in range(TH, (SCREENHEIGHT*VMS) - TH, TH):
-			# Left Border
+		# Middle Section
+		for y in xrange(TH, (SCREENHEIGHT*VMS) - TH, TH):
+			
+			# left Border
 			BorderTile(0, y)
-
-			for x in range(TW, (SCREENWIDTH*HMS)-TW, TW ):
+			
+			for x in xrange(TW, (SCREENWIDTH*HMS)-TW, TW ):
 				EmptyTile(x, y)
-
-			#Right Border
+			
+			# Right Border
 			BorderTile(SCREENWIDTH - TW, y)
 
-		#Bottom Border
-		for x in range(0, SCREENWIDTH*HMS, TW):
+		# Bottom Border
+		for x in xrange(0, SCREENWIDTH*HMS, TW):
 			BorderTile(x, SCREENHEIGHT*VMS-TH)
-
 			
 
 	@staticmethod

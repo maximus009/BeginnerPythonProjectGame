@@ -2,7 +2,7 @@
 This file contains all of the constants for our game.
 """
 #Horizontal - Vertical Number of Tiles
-HT, VT = 20, 15
+HT, VT = 16, 12
 
 #Horizontal - Vertical Map Stretch
 HMS, VMS = 1, 1

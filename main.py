@@ -12,8 +12,6 @@ if not pygame.mixer: print('ERROR: sounds are disabled for this session')
 
 pygame.init()
 
-#Deleting these constants will allow const.py to take over.
-SCREENWIDTH, SCREENHEIGHT = 640, 480
 screen = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT), 0, 32)
 
 pygame.display.set_caption('CSPSP Clone in Python')
@@ -45,7 +43,7 @@ while True:
 
 
         #DRAW
-        screen.blit(background, (0,0) )
+        screen.fill(WHITE)
         BorderTile.drawTiles(screen)
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         pygame.display.flip()
