@@ -11,7 +11,7 @@ if not pygame.mixer: print('ERROR: sounds are disabled for this session')
 
 pygame.init()
 
-#Deleting these constants will allow tile.py to take over.
+#Deleting these constants will allow const.py to take over.
 SCREENWIDTH, SCREENHEIGHT = 640, 480
 screen = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT), 0, 32)
 
