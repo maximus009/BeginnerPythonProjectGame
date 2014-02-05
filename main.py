@@ -23,6 +23,7 @@ FPS = 60
 total_frames = 0
 playing = False
 
+#Draws tiles to the screen at the beginning
 Tile.preInit()
 
 
