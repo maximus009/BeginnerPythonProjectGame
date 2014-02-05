@@ -112,4 +112,4 @@ class BorderTile(Tile):
 			#Draws the tile we just made!
 			#Replace BLACK with image later.
 			pygame.draw.rect(screen, RED, borderTile)
-
+                        #where is BLACK?
