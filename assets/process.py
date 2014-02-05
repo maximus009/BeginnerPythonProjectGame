@@ -39,6 +39,7 @@ def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
             if Button.rect.collidepoint(mouseX, mouseY):
                 Button.image = pygame.image.load("assets/images/buttonpress.bmp")
                 screen.blit(Button.image, (280,230) )
+                pygame.display.flip()
                 
                 pygame.time.delay(100)
                 return True
