@@ -110,6 +110,6 @@ class BorderTile(Tile):
 		for tileNumber in range(BorderTile.tileCount):
 			borderTile = BorderTile.getTile(tileNumber)
 			#Draws the tile we just made!
-			#Replace BLACK with image later.
+			#Replace RED with image later.
 			pygame.draw.rect(screen, RED, borderTile)
-                        #where is BLACK?
+            
