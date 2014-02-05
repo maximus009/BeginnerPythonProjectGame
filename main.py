@@ -5,7 +5,6 @@ sys.path.append(os.getcwd()+'/assets') #add our module to the path python search
 from classes import * #import our class module
 from process import * #Handles user input and our output.
 from const import * #All constants are held in here.
-from tile import *
 
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
@@ -24,7 +23,6 @@ total_frames = 0
 playing = False
 
 #Draws tiles to the screen at the beginning
-Tile.preInit()
 
 
 background = pygame.image.load("assets/images/background.bmp")
@@ -43,10 +41,7 @@ while True:
         #Handles Player Movement, including jumping.
         player.motion(SCREENWIDTH, SCREENHEIGHT)
 
-
         #DRAW
-        BorderTile.drawTiles(screen) #Draws border tiles
-        EmptyTile.drawTiles(screen) #Draws walkable tiles
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         Health.draw(screen)
         pygame.display.flip()
