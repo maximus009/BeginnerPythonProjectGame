@@ -43,7 +43,7 @@ while True:
 
         #DRAW
         screen.blit(background, (0,0) )
-        Player.PlayersList.draw(screen) #Draws ALL sprites to the screen.
+        Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         pygame.display.flip()
 
         clock.tick(FPS)
