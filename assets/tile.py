@@ -19,8 +19,8 @@ class Tile(pygame.Rect):
 			#Keep all subclasses in one place
 			Tile.subClasses.add(subClass)
 			#Creating a dictionary of subclasses will allow us to manipulate individual subclasses
-			subClass.titleDict.update({subClass.tileCount:self})
-			subClass.titleCount += 1
+			subClass.tileDict.update({subClass.tileCount:self})
+			subClass.tileCount += 1
 
 		else:
 			print ("Tile failed to manifest onto the grid.")
@@ -31,22 +31,22 @@ class Tile(pygame.Rect):
 		#Initilize and BorderTiles and EmptyTiles before the game 
 
 		#Top Border
-		for x in xrange(0,SCREENWIDTH*HMS, TW):
+		for x in range(0,SCREENWIDTH*HMS, TW):
 			BorderTile(x, 0)
 
 		#Middle Section
-		for y in xrange(TH, (SCREENHEIGHT*VMS) - TH, TH):
+		for y in range(TH, (SCREENHEIGHT*VMS) - TH, TH):
 			# Left Border
 			BorderTile(0, y)
 
-			for x in xrange(TW, (SCREENWIDTH*HMS)-TW, TW ):
+			for x in range(TW, (SCREENWIDTH*HMS)-TW, TW ):
 				EmptyTile(x, y)
 
 			#Right Border
 			BorderTile(SCREENWIDTH - TW, y)
 
 		#Bottom Border
-		for x in xrange(0, SCREENWIDTH*HMS, TW):
+		for x in range(0, SCREENWIDTH*HMS, TW):
 			BorderTile(x, SCREENHEIGHT*VMS-TH)
 
 			
@@ -84,11 +84,11 @@ class EmptyTile(Tile):
 	@staticmethod
 	def drawTiles(screen):
 
-		for tileNumber in xrange(EmptyTile.tileCount):
+		for tileNumber in range(EmptyTile.tileCount):
 			emptyTile = EmptyTile.getTile(tileNumber)
 			#Draws the tile we just made!
 			#Replace BLACK with image later.
-			pygame.draw.rect(screen, BLACK, emmptyTile)
+			pygame.draw.rect(screen, BLACK, emptyTile)
 
 class BorderTile(Tile):
 
@@ -107,8 +107,9 @@ class BorderTile(Tile):
 	@staticmethod
 	def drawTiles(screen):
 
-		for tileNumber in xrange(BorderTile.tileCount):
+		for tileNumber in range(BorderTile.tileCount):
 			borderTile = BorderTile.getTile(tileNumber)
 			#Draws the tile we just made!
 			#Replace BLACK with image later.
-			pygame.draw.rect(screen, RED, emmptyTile)
+			pygame.draw.rect(screen, RED, borderTile)
+

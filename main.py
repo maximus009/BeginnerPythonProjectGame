@@ -25,7 +25,7 @@ FPS = 60
 total_frames = 0
 playing = False
 
-#Tile.preInit()
+Tile.preInit()
 
 
 background = pygame.image.load("assets/images/background.bmp")
@@ -46,7 +46,7 @@ while True:
 
         #DRAW
         screen.blit(background, (0,0) )
-        #BorderTile.drawTiles(screen)
+        BorderTile.drawTiles(screen)
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         pygame.display.flip()
 
