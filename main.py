@@ -1,11 +1,10 @@
-import pygame, sys, math, os
+import pygame, sys, math, os.path
 from pygame.locals import *
 sys.path.append(os.getcwd()+'/assets') #add our module to the path python searches
 
-import classes #import our class module
-import process
 from classes import * #import our class module
 from process import * #Handles user input and our output.
+from const import *
 
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
