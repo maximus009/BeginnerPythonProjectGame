@@ -14,7 +14,17 @@ class BaseClass(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
         self.width, self.height = width, height
+        
+class HUD(BaseClass):
+    def __init__(self, x, y, width, height, image_path):
+        BaseClass.__init__(self, x, y, width, height, image_path)
+        self.x = x
+        self.y = y
 
+    def draw(self, screen):
+        self.screen = screen
+        self.screen.blit(self.image, (self.x,self.y) )
+        
 
 class Player(BaseClass):
 
