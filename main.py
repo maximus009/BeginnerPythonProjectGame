@@ -44,7 +44,7 @@ while True:
 
 
         #DRAW
-        screen.fill(WHITE)
+        screen.blit(background, (0,0))
         BorderTile.drawTiles(screen)
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         pygame.display.flip()
