@@ -5,6 +5,7 @@ sys.path.append(os.getcwd()+'/assets') #add our module to the path python search
 from classes import * #import our class module
 from process import * #Handles user input and our output.
 from const import * #All constants are held in here.
+from tile import *
 
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
@@ -23,6 +24,8 @@ clock = pygame.time.Clock()
 FPS = 60
 total_frames = 0
 playing = False
+
+#Tile.preInit()
 
 
 background = pygame.image.load("assets/images/background.bmp")
@@ -43,6 +46,7 @@ while True:
 
         #DRAW
         screen.blit(background, (0,0) )
+        #BorderTile.drawTiles(screen)
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         pygame.display.flip()
 

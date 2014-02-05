@@ -11,7 +11,7 @@ class Tile(pygame.Rect):
 
 		if x % TW == 0 and y % TH == 0: #Checks to see if tile is on grid.
 			super(Tile, self).__init__(x, y, TW, TH) #Construct rectangle for tile. Super acceses pygame.Rect
-			Tile.tileDict.update({tile.tileCount:self}) #Add tile to tileDict in Tile
+			Tile.tileDict.update({Tile.tileCount:self}) #Add tile to tileDict in Tile
 			Tile.tileCount += 1
 
 			#Gets self's class (type of tile)
@@ -19,7 +19,7 @@ class Tile(pygame.Rect):
 			#Keep all subclasses in one place
 			Tile.subClasses.add(subClass)
 			#Creating a dictionary of subclasses will allow us to manipulate individual subclasses
-			subClass.titleDict.update({subClass.titleCount:self})
+			subClass.titleDict.update({subClass.tileCount:self})
 			subClass.titleCount += 1
 
 		else:
@@ -28,7 +28,28 @@ class Tile(pygame.Rect):
 
 	@staticmethod
 	def preInit():
-		pass
+		#Initilize and BorderTiles and EmptyTiles before the game 
+
+		#Top Border
+		for x in xrange(0,SCREENWIDTH*HMS, TW):
+			BorderTile(x, 0)
+
+		#Middle Section
+		for y in xrange(TH, (SCREENHEIGHT*VMS) - TH, TH):
+			# Left Border
+			BorderTile(0, y)
+
+			for x in xrange(TW, (SCREENWIDTH*HMS)-TW, TW ):
+				EmptyTile(x, y)
+
+			#Right Border
+			BorderTile(SCREENWIDTH - TW, y)
+
+		#Bottom Border
+		for x in xrange(0, SCREENWIDTH*HMS, TW):
+			BorderTile(x, SCREENHEIGHT*VMS-TH)
+
+			
 
 	@staticmethod
 	def getTile(tileNumber):
