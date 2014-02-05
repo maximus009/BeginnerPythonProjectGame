@@ -111,5 +111,6 @@ class BorderTile(Tile):
 			borderTile = BorderTile.getTile(tileNumber)
 			#Draws the tile we just made!
 			#Replace RED with image later.
+			BorderImage = pygame.image.load("assets/images/border.bmp")
 			pygame.draw.rect(screen, RED, borderTile)
             
