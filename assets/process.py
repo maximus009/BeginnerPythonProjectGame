@@ -43,4 +43,9 @@ def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
                 
                 pygame.time.delay(100)
                 return True
+
+        if event.type == pygame.QUIT:
+            pygame.quit() #closes pygame
+            sys.exit() #closes actual program
+            
     return False
