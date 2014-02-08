@@ -29,7 +29,6 @@ background = pygame.image.load("assets/images/background.bmp")
 player = Player(0,SCREENHEIGHT - 166,131,166,"assets/images/player.bmp")
 MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
 Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
-Health = HUD(480,440,160,40,"assets/images/health.bmp")
 
 
 #-------------Main Program Loop-----------------
@@ -40,13 +39,15 @@ while True:
 
         #Handles Player Movement, including jumping.
         player.motion(SCREENWIDTH, SCREENHEIGHT)
-
+        player.health -= 0.1 #just here to display how health changes etc....
         #DRAW
         screen.blit(background, (0,0))
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
-        Health.draw(screen)
+        if player.health > 25:
+            DrawHealth(player.health,WHITE,screen)
+        else:
+            DrawHealth(player.health,RED,screen)
         pygame.display.flip()
-
         clock.tick(FPS)
     else:
         playing = menu(BaseClass, screen, clock, FPS, MenuImage, Button)
