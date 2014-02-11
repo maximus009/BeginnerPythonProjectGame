@@ -1,3 +1,11 @@
 h1 {
-	color: black
+	text-align: center;
+	background-color: #FF7B1C;
+	border-radius: 15px;
+	border-color: #000000;
+	border-style: dashed;
+	border-width: 5px;
+	padding: 25px;
+	position: relative;
+	width: 100$;
 }
