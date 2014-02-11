@@ -9,7 +9,7 @@ How to Contribute
 =================
 We are using Python 3.x to develop this game.
 
-You can get it here: http://www.python.org/download/releases/3.3.3/
+You can get it here: http://www.python.org/download/releases/3.3.4/
 
 or ```sudo apt-get install python3```
 
