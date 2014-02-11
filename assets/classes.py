@@ -5,7 +5,9 @@ class BaseClass(pygame.sprite.Sprite):
     allsprites = pygame.sprite.Group()
 
     def __init__(self, x, y, width, height, image_path):
-
+        self.x = x
+        self.y = y
+        
         pygame.sprite.Sprite.__init__(self) #initialize sprite class from pygame
         BaseClass.allsprites.add(self) #Adds sprite to allsprites, and images are displayed in main.py
 

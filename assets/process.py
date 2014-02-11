@@ -49,8 +49,17 @@ def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
             sys.exit() #closes actual program
             
     return False
+
 def DrawHealth(health,COLOUR,screen):
     ourtext = "Health: "+str(int(health))
     txtfont = pygame.font.SysFont("monospace", 36)
     health_hud = txtfont.render(ourtext, 1, COLOUR)
     screen.blit(health_hud, (400, 444))
+
+def spike(Spike,screen,clock,FPS,player,pygame):
+    screen.blit(Spike.image, (Spike.x,Spike.y))
+    if pygame.sprite.collide_rect(player, Spike):
+        print("collison")
+        return 10
+    else:
+        return 0
