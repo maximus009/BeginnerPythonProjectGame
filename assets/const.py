@@ -17,9 +17,12 @@ SCREENWIDTH, SCREENHEIGHT = HT*TW, VT *TH
 HTD, VTD = 1, HT*HMS
 
 # Color RGB constants
-BLACK    = (   0,   0,   0)
-WHITE    = ( 255, 255, 255)
-GREEN    = (   0, 255,   0)
-RED      = ( 255,   0,   0)
-BLUE 	 = ( 0,   0,   225) 
-GREY     = (200, 200,  200)
+BLACK    = (  0,   0,   0)
+WHITE    = (255, 255, 255)
+GREEN    = (  0, 255,   0)
+RED      = (255,   0,   0)
+BLUE 	 = (  0,   0, 225) 
+GREY     = (200, 200, 200)
+YELLOW   = (255, 255,   0)
+PURPLE   = (255,   0, 225)
+CYAN     = (  0, 225, 225)
