@@ -10,7 +10,6 @@ if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
 
 pygame.init()
-
 screen = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT), 0, 32)
 
 pygame.display.set_caption('CSPSP Clone in Python')
@@ -29,14 +28,20 @@ background = pygame.image.load("assets/images/background.bmp")
 player = Player(0,SCREENHEIGHT - 166,131,166,"assets/images/player.bmp")
 MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
 Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
-Spike = BaseClass(240, 400, 80, 80, "assets/images/spike.bmp")
-
-
+Spike = BaseClass(300, 400, 80, 80, "assets/images/spike.bmp")
+knockbacked = 0
 #-------------Main Program Loop-----------------
 while True:
     if playing == True:
         total_frames += 1 #Putting this at the beginning so other functions can use this.
-        keystrokes(player) #Handles Key Commands and Quitting
+        if knockbacked > 0:
+            knockbacked -= 1
+            knock_back = True
+        else:
+            knock_back = False
+        
+        if knock_back == False:
+            keystrokes(player) #Handles Key Commands and Quitting
 
         #Handles Player Movement, including jumping.
         player.motion(SCREENWIDTH, SCREENHEIGHT)
@@ -44,7 +49,7 @@ while True:
         screen.blit(background, (0,0))
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         #DRAWS SPIKE and checks for collision with player
-        player.health = player.health - spike(Spike,screen,clock,FPS,player,pygame)
+        knockbacked = spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbacked)
         #HEALTH DRAW
         if player.health > 25:
             DrawHealth(player.health,WHITE,screen)

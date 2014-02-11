@@ -56,10 +56,12 @@ def DrawHealth(health,COLOUR,screen):
     health_hud = txtfont.render(ourtext, 1, COLOUR)
     screen.blit(health_hud, (400, 444))
 
-def spike(Spike,screen,clock,FPS,player,pygame):
+def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockback):
     screen.blit(Spike.image, (Spike.x,Spike.y))
     if pygame.sprite.collide_rect(player, Spike):
-        print("collison")
-        return 10
+        player.velx = -20
+        player.health -= 10
+        player.motion(SCREENWIDTH, SCREENHEIGHT)
+        return 5
     else:
-        return 0
+        return knockback
