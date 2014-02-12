@@ -13,7 +13,9 @@ You can get it here: http://www.python.org/download/releases/3.3.4/
 
 or ```sudo apt-get install python3```
 
-You will also need to install PyGame for 3.2/compile for 3.2+: http://pygame.org/download.shtml
+You will also need to install PyGame for 3.2: http://pygame.org/download.shtml
+
+Alternatively you can compile it from source: http://www.pygame.org/wiki/CompileUbuntu?parent=index
 
 For now all sprites/images will need to be .bmp files to avoid
 errors due to lack of libraries or whatnot. I suggest just opening
