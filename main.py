@@ -54,7 +54,7 @@ while True:
         if player.health > 25:
             DrawHealth(player.health,WHITE,screen)
         elif player.health == 0:
-            displayText(100, 100, "You Died!", BLACK, screen)
+            displayText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
         else:
             DrawHealth(player.health,RED,screen)
 

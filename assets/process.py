@@ -66,8 +66,8 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
     else:
         return knockback
 
-def displayText(xpos, ypos, string, COLOUR, screen):
+def displayText(xpos, ypos, string, COLOUR, font_type, font_size, screen):
     txt = string
-    txtfont = pygame.font.SysFont("monospace", 36)
+    txtfont = pygame.font.SysFont(font_type, font_size)
     displayTxt= txtfont.render(txt, 1, COLOUR)
     screen.blit(displayTxt, (xpos, ypos))
