@@ -21,8 +21,6 @@ FPS = 60
 total_frames = 0
 playing = False
 
-#Draws tiles to the screen at the beginning
-
 
 background = pygame.image.load("assets/images/background.bmp")
 player = Player(0,SCREENHEIGHT - 166,131,166,"assets/images/player.bmp")
@@ -33,7 +31,9 @@ knockbacked = 0
 #-------------Main Program Loop-----------------
 while True:
     if playing == True:
+
         total_frames += 1 #Putting this at the beginning so other functions can use this.
+
         if knockbacked > 0:
             knockbacked -= 1
             knock_back = True
@@ -53,8 +53,11 @@ while True:
         #HEALTH DRAW
         if player.health > 25:
             DrawHealth(player.health,WHITE,screen)
+        elif player.health == 0:
+            displayText(100, 100, "You Died!", BLACK, screen)
         else:
             DrawHealth(player.health,RED,screen)
+
         pygame.display.flip()
         clock.tick(FPS)
     else:
