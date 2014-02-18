@@ -67,7 +67,7 @@
 			"file": "main.py",
 			"settings":
 			{
-				"buffer_size": 2351,
+				"buffer_size": 2368,
 				"line_ending": "Unix"
 			}
 		},
@@ -91,7 +91,7 @@
 			"file": "assets/process.py",
 			"settings":
 			{
-				"buffer_size": 2401,
+				"buffer_size": 2428,
 				"line_ending": "Unix"
 			}
 		}
@@ -200,15 +200,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2351,
+						"buffer_size": 2368,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1999,
-								1999
+								765,
+								765
 							]
 						],
 						"settings":
@@ -218,7 +218,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 536.0,
+						"translation.y": 225.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -288,15 +288,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2401,
+						"buffer_size": 2428,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1629,
-								1629
+								2338,
+								2338
 							]
 						],
 						"settings":
@@ -306,7 +306,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 704.0,
+						"translation.y": 600.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
