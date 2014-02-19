@@ -41,5 +41,7 @@ http://zipy124.github.io/BeginnerPythonProjectGame
 Collaberators
 =====================
 Zipy124
+
 MintyX
+
 Cheyennerhap
