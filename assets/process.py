@@ -50,12 +50,6 @@ def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
             
     return False
 
-def DrawHealth(health,COLOUR,screen):
-    ourtext = "Health: "+str(int(health))
-    txtfont = pygame.font.SysFont("monospace", 36)
-    health_hud = txtfont.render(ourtext, 1, COLOUR)
-    screen.blit(health_hud, (400, 444))
-
 def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockback):
     screen.blit(Spike.image, (Spike.x,Spike.y))
     if pygame.sprite.collide_rect(player, Spike):
@@ -66,7 +60,7 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
     else:
         return knockback
 
-def displayText(xpos, ypos, string, COLOUR, font_type, font_size, screen):
+def drawText(xpos, ypos, string, COLOUR, font_type, font_size, screen):
     txt = string
     txtfont = pygame.font.SysFont(font_type, font_size)
     displayTxt= txtfont.render(txt, 1, COLOUR)

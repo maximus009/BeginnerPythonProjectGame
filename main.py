@@ -52,11 +52,11 @@ while True:
         knockbacked = spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbacked)
         #HEALTH DRAW
         if player.health > 25:
-            DrawHealth(player.health,WHITE,screen)
+            drawText(400, 444, "Health: " + str(int(player.health)), WHITE, "monospace", 36, screen)
         elif player.health == 0:
-            displayText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
+            drawText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
         else:
-            DrawHealth(player.health,RED,screen)
+            drawText(400, 444, "Health: " + str(int(player.health)), RED, "monospace", 36, screen)
 
         pygame.display.flip()
         clock.tick(FPS)
