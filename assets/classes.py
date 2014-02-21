@@ -59,37 +59,3 @@ class Player(BaseClass):
 
 
         self.rect.y += self.vely
-
-        self.jump(SCREENHEIGHT)
-
-    def jump(self, SCREENHEIGHT):
-
-        #Jump! Jump! Jump!
-
-        max_jump = 150
-
-        if self.jumping:
-            self.vely = 10
-			
-            if self.rect.y <= max_jump:
-                self.go_down = True
-
-            if self.go_down:
-                self.rect.y += self.vely
-
-                predicted_location = self.rect.y + self.vely
-
-                if predicted_location + self.height > SCREENHEIGHT:
-                    self.jumping = False
-                    self.go_down = False
-                    if self.velx < 0:
-                        self.image = pygame.image.load("assets/images/playerflipped.bmp")
-                    else:  
-                        self.image = pygame.image.load("assets/images/player.bmp")
-
-            else:
-                self.rect.y -= self.vely
-                if self.velx < 0:
-                    self.image = pygame.image.load("assets/images/playerflippedjump.bmp")
-                else:
-                    self.image = pygame.image.load("assets/images/playerjump.bmp")
