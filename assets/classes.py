@@ -38,6 +38,7 @@ class Player(BaseClass):
         #Predicts where image is going to be placed next to prevent going
         #Off of the screen a smidge.
         predicted_location_x = self.rect.x + self.velx
+        predicted_location_y = self.rect.y + self.vely
 
         #Horizontal Constraints
         if predicted_location_x < 0:

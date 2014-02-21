@@ -23,7 +23,7 @@ playing = False
 
 
 background = pygame.image.load("assets/images/background.bmp")
-player = Player(0,SCREENHEIGHT - 166,131,166,"assets/images/player.bmp")
+player = Player(0,SCREENHEIGHT - 128,128,128,"assets/images/playerRight.bmp")
 MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
 Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
 Spike = BaseClass(300, 400, 80, 80, "assets/images/spike.bmp")

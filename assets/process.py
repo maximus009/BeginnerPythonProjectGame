@@ -11,15 +11,26 @@ def keystrokes(player):
 
     #Keyboard Commands
     if keyboard[pygame.K_RIGHT] or keyboard[pygame.K_d]:
-        player.image = pygame.image.load("assets/images/player.bmp")
+        player.image = pygame.image.load("assets/images/playerRight.bmp")
         player.velx = 5
 
     elif keyboard[pygame.K_LEFT] or keyboard[pygame.K_a]:
-        player.image = pygame.image.load("assets/images/playerflipped.bmp")
+        player.image = pygame.image.load("assets/images/playerLeft.bmp")
         player.velx = -5
 
     else:
         player.velx = 0
+
+    if keyboard[pygame.K_UP] or keyboard[pygame.K_w]:
+        player.image = pygame.image.load("assets/images/playerUp.bmp")
+        player.vely = 5
+
+    elif keyboard[pygame.K_DOWN] or keyboard[pygame.K_s]:
+        player.image = pygame.image.load("assets/images/playerDown.bmp")
+        player.vely = -5
+
+    else:
+        player.vely = 0
 
     if keyboard[pygame.K_SPACE]:
         player.jumping = True
