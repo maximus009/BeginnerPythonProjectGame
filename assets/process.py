@@ -61,7 +61,10 @@ def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
 def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockback):
     screen.blit(Spike.image, (Spike.x,Spike.y))
     if pygame.sprite.collide_rect(player, Spike):
-        player.velx = -20
+        if player.velx > 0:
+            player.velx = -20
+        else:
+            player.velx = 20
         player.health -= 10
         player.motion(SCREENWIDTH, SCREENHEIGHT)
         return 5
