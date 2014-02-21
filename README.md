@@ -29,9 +29,9 @@ Controls
 
 W/Up Arrow - Move player up.
 
-S/Down Arrows - Move player down.
-
 A/Left Arrow - Move player left.
+
+S/Down Arrow - Move player down.
 
 D/Right Arrow - Move player right.
 
