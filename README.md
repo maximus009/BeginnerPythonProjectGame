@@ -7,7 +7,7 @@ So far we have a background and sprite displaying.
 
 How to Contribute
 =================
-Visit this page for installation instructions for Python 3, PyGame and git: https://github.com/zipy124/BeginnerPythonProjectGame.wiki.git
+Visit this page for installation instructions for Python 3, PyGame and git: https://github.com/zipy124/BeginnerPythonProjectGame/wiki/Getting-Started
 
 For now all sprites/images will need to be .bmp files to avoid
 errors due to lack of libraries or whatnot. I suggest just opening
