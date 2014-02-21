@@ -63,8 +63,10 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
     if pygame.sprite.collide_rect(player, Spike):
         if player.velx > 0:
             player.velx = -20
-        else:
+        elif player.velx < 0:
             player.velx = 20
+        else:
+            player.vely = -20
         player.health -= 10
         player.motion(SCREENWIDTH, SCREENHEIGHT)
         return 5
