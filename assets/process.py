@@ -23,11 +23,11 @@ def keystrokes(player):
 
     if keyboard[pygame.K_UP] or keyboard[pygame.K_w]:
         player.image = pygame.image.load("assets/images/playerUp.bmp")
-        player.vely = 5
+        player.vely = -5
 
     elif keyboard[pygame.K_DOWN] or keyboard[pygame.K_s]:
         player.image = pygame.image.load("assets/images/playerDown.bmp")
-        player.vely = -5
+        player.vely = 5
 
     else:
         player.vely = 0

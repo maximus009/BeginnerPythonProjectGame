@@ -50,6 +50,16 @@ class Player(BaseClass):
 
         self.rect.x += self.velx
 
+        #Vertical Constraints
+        if predicted_location_y < 0:
+            self.vely = 0
+
+        elif predicted_location_y + self.height > SCREENWIDTH:
+            self.vely = 0
+
+
+        self.rect.y += self.vely
+
         self.jump(SCREENHEIGHT)
 
     def jump(self, SCREENHEIGHT):
