@@ -30,8 +30,6 @@ class Player(BaseClass):
 
         #Velocities of movement
         self.velx, self.vely = 0, 0
-        #Will want to add self.standing soon
-        self.jumping, self.go_down = False, False
 
     def motion(self, SCREENWIDTH, SCREENHEIGHT):
 

@@ -26,11 +26,15 @@ To be added as a contributor either open up an issue or post in this thread: htt
 
 Controls
 ==========
+
+W/Up Arrow - Move player up.
+
+S/Down Arrows - Move player down.
+
 A/Left Arrow - Move player left.
 
 D/Right Arrow - Move player right.
 
-Space Bar - Jump
 
 ESC - Exit
 
@@ -38,7 +42,7 @@ Website
 ===========
 http://zipy124.github.io/BeginnerPythonProjectGame
 
-Collaberators
+Collaborators
 =====================
 Zipy124
 

@@ -32,9 +32,6 @@ def keystrokes(player):
     else:
         player.vely = 0
 
-    if keyboard[pygame.K_SPACE]:
-        player.jumping = True
-
     if keyboard[pygame.K_ESCAPE]:
         pygame.quit() #closes pygame
         sys.exit() #closes actual program
