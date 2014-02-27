@@ -9,8 +9,15 @@ from const import * #All constants are held in here.
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
 
+
+pygame.mixer.pre_init(44100, -16, 2, 2048) #Initialize sound mixer
 pygame.init()
 screen = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT), 0, 32)
+
+try:
+    death_sound = pygame.mixer.Sound('assets/audio/youlose.wav')  #load sound
+except:
+    raise "Error loading audio file."
 
 pygame.display.set_caption('CSPSP Clone in Python')
 icon = pygame.image.load("assets/images/icon.bmp").convert_alpha()        
@@ -55,6 +62,7 @@ while True:
             drawText(400, 444, "Health: " + str(int(player.health)), WHITE, "monospace", 36, screen)
         elif player.health == 0:
             drawText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
+            death_sound.play()
         else:
             drawText(400, 444, "Health: " + str(int(player.health)), RED, "monospace", 36, screen)
 
