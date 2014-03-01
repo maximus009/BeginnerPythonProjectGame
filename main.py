@@ -27,6 +27,7 @@ clock = pygame.time.Clock()
 FPS = 60
 total_frames = 0
 playing = False
+dead = False
 
 
 background = pygame.image.load("assets/images/background.bmp")
