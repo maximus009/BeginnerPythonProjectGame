@@ -77,5 +77,9 @@ while True:
         pygame.display.flip()
         clock.tick(FPS)
     else:
-        playing = menu(BaseClass, screen, clock, FPS, MenuImage, Button)
-        keystrokes(player)
+        if dead == False:
+            playing = menu(BaseClass, screen, clock, FPS, MenuImage, Button)
+            keystrokes(player)
+        else:
+            #Open up a menu with a retry option.
+            keystrokes(player)
