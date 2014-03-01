@@ -39,6 +39,8 @@ knockbacked = 0
 while True:
     if playing == True:
 
+        dead = False
+
         total_frames += 1 #Putting this at the beginning so other functions can use this.
 
         if knockbacked > 0:
@@ -61,11 +63,16 @@ while True:
         if player.health > 25:
             drawText(400, 444, "Health: " + str(int(player.health)), WHITE, "monospace", 36, screen)
         elif player.health == 0:
-            drawText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
-            death_sound.play(0)
-            player.health = 100 # Set health back to 100
+            dead = True
         else:
             drawText(400, 444, "Health: " + str(int(player.health)), RED, "monospace", 36, screen)
+
+        #Check if dead
+        if dead == True:
+            drawText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
+            death_sound.play(0)
+            playing = False
+            player.health = 100
 
         pygame.display.flip()
         clock.tick(FPS)
