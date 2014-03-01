@@ -36,6 +36,7 @@ MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
 Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
 Spike = BaseClass(300, 400, 80, 80, "assets/images/spike.bmp")
 RetryButton = BaseClass(280,240,80,20,"assets/images/tryAgainButton.bmp")
+ExitButton = BaseClass(280,270,80,20,"assets/images/exitButton.bmp")
 knockbacked = 0
 #-------------Main Program Loop-----------------
 while True:
@@ -52,7 +53,7 @@ while True:
             knock_back = False
         
         if knock_back == False:
-            keystrokes(player) #Handles Key Commands and Quitting
+            keystrokes(player, playing) #Handles Key Commands and Quitting
 
         #Handles Player Movement, including jumping.
         player.motion(SCREENWIDTH, SCREENHEIGHT)
@@ -79,9 +80,9 @@ while True:
         clock.tick(FPS)
     else:
         if dead == False:
-            playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button)
-            keystrokes(player)
+            playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton)
+            keystrokes(player, playing)
         else:
             #Open up a menu with a retry option.
-            playing = inGameMenu(BaseClass, screen, clock, FPS, MenuImage, RetryButton, player, SCREENHEIGHT)
-            keystrokes(player)
+            playing = inGameMenu(BaseClass, screen, clock, FPS, MenuImage, RetryButton, ExitButton, player, SCREENHEIGHT)
+            keystrokes(player, playing)

@@ -1,6 +1,6 @@
 import pygame, sys
 
-def keystrokes(player):
+def keystrokes(player, playing):
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -36,9 +36,10 @@ def keystrokes(player):
         pygame.quit() #closes pygame
         sys.exit() #closes actual program
 
-def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button):
+def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
+    screen.blit(ExitButton.image, (280,260) )
     pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -52,15 +53,20 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button):
                 pygame.time.delay(100)
                 return True
 
+            elif ExitButton.rect.collidepoint(mouseX, mouseY):
+                pygame.quit()
+                sys.exit()
+
         if event.type == pygame.QUIT:
             pygame.quit() #closes pygame
             sys.exit() #closes actual program
             
     return False
 
-def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button, player, SCREENHEIGHT):
+def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton, player, SCREENHEIGHT):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
+    screen.blit(ExitButton.image, (280,260) )
     pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -75,6 +81,11 @@ def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button, player, SCREENH
                 
                 pygame.time.delay(100)
                 return True
+
+            elif ExitButton.rect.collidepoint(mouseX, mouseY):
+                pygame.quit()
+                sys.exit()
+
 
         if event.type == pygame.QUIT:
             pygame.quit() #closes pygame

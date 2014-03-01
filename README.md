@@ -27,6 +27,7 @@ S/Down Arrow - Move player down.
 
 D/Right Arrow - Move player right.
 
+Tab - Menu
 
 ESC - Exit
 
