@@ -74,7 +74,6 @@ while True:
             drawText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
             death_sound.play(0)
             playing = False
-            reset(player, SCREENHEIGHT)
 
         pygame.display.flip()
         clock.tick(FPS)
@@ -84,5 +83,5 @@ while True:
             keystrokes(player)
         else:
             #Open up a menu with a retry option.
-            playing = inGameMenu(BaseClass, screen, clock, FPS, MenuImage, RetryButton)
+            playing = inGameMenu(BaseClass, screen, clock, FPS, MenuImage, RetryButton, player, SCREENHEIGHT)
             keystrokes(player)

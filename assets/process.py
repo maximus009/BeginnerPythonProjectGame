@@ -58,7 +58,7 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button):
             
     return False
 
-def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button):
+def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button, player, SCREENHEIGHT):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
     pygame.display.flip()
@@ -70,6 +70,8 @@ def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button):
                 Button.image = pygame.image.load("assets/images/tryAgainButton.bmp")
                 screen.blit(Button.image, (280,230) )
                 pygame.display.flip()
+
+                reset(player, SCREENHEIGHT)
                 
                 pygame.time.delay(100)
                 return True
