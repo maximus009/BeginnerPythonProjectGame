@@ -35,6 +35,7 @@ player = Player(0,SCREENHEIGHT - 128,128,128,"assets/images/playerRight.bmp")
 MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
 Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
 Spike = BaseClass(300, 400, 80, 80, "assets/images/spike.bmp")
+RetryButton = BaseClass(280,240,80,20,"assets/images/tryAgainButton.bmp")
 knockbacked = 0
 #-------------Main Program Loop-----------------
 while True:
@@ -73,14 +74,15 @@ while True:
             drawText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
             death_sound.play(0)
             playing = False
-            player.health = 100
+            reset(player, SCREENHEIGHT)
 
         pygame.display.flip()
         clock.tick(FPS)
     else:
         if dead == False:
-            playing = menu(BaseClass, screen, clock, FPS, MenuImage, Button)
+            playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button)
             keystrokes(player)
         else:
             #Open up a menu with a retry option.
+            playing = inGameMenu(BaseClass, screen, clock, FPS, MenuImage, RetryButton)
             keystrokes(player)

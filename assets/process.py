@@ -36,7 +36,7 @@ def keystrokes(player):
         pygame.quit() #closes pygame
         sys.exit() #closes actual program
 
-def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
+def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
     pygame.display.flip()
@@ -46,6 +46,28 @@ def menu(BaseClass, screen, clock, FPS, MenuImage, Button):
             mouseX, mouseY = pygame.mouse.get_pos()
             if Button.rect.collidepoint(mouseX, mouseY):
                 Button.image = pygame.image.load("assets/images/buttonpress.bmp")
+                screen.blit(Button.image, (280,230) )
+                pygame.display.flip()
+                
+                pygame.time.delay(100)
+                return True
+
+        if event.type == pygame.QUIT:
+            pygame.quit() #closes pygame
+            sys.exit() #closes actual program
+            
+    return False
+
+def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button):
+    screen.blit(MenuImage.image, (0,0) )
+    screen.blit(Button.image, (280,230) )
+    pygame.display.flip()
+    for event in pygame.event.get():
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            # Set the x, y postions of the mouse click
+            mouseX, mouseY = pygame.mouse.get_pos()
+            if Button.rect.collidepoint(mouseX, mouseY):
+                Button.image = pygame.image.load("assets/images/tryAgainButton.bmp")
                 screen.blit(Button.image, (280,230) )
                 pygame.display.flip()
                 
@@ -78,3 +100,10 @@ def drawText(xpos, ypos, string, COLOUR, font_style, font_size, screen):
     txtfont = pygame.font.SysFont(font_style, font_size)
     displayTxt= txtfont.render(txt, 1, COLOUR)
     screen.blit(displayTxt, (xpos, ypos))
+
+#Places player back at the default spawn point and resets health
+def reset(player, SCREENHEIGHT):
+    player.health = 100
+    player.rect.x = 0
+    player.rect.y = SCREENHEIGHT - 128
+    player.image = pygame.image.load("assets/images/playerRight.bmp")
