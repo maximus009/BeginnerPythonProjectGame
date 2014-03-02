@@ -72,7 +72,6 @@ while True:
 
         #Check if dead
         if dead == True:
-            drawText(100, 100, "You Died!", BLACK, "monospace", 36, screen)
             death_sound.play(0)
             playing = False
 
