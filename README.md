@@ -16,6 +16,8 @@ and removing any white space, then exporting as a .bmp file.
 
 To be added as a contributor either open up an issue or post in this thread: http://www.codecademy.com/groups/simple-python-projects/discussions/52e45bf27c82caf8be00599d#comment-52f181af8c1ccc89ca000725
 
+When commiting please change the version checker(in the process.py file in the menu function) to the new commit number so if this is commit number 256 version will be 0.0256, also change this on the gh-pages branch in the v folder to make sure our version checker stays working. Do not worry if you do not do this as i will try to update it whenever possible :)
+
 Controls
 ==========
 
