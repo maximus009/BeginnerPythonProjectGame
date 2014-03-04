@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, urllib.request
 
 def keystrokes(player, playing):
 
@@ -36,11 +36,24 @@ def keystrokes(player, playing):
         pygame.quit() #closes pygame
         sys.exit() #closes actual program
 
-def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton):
+def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
     screen.blit(ExitButton.image, (280,260) )
     pygame.display.flip()
+
+    if update_check == False:
+        urllib.request.urlretrieve ("http://zipy124.github.io/BeginnerPythonProjectGame/v/version.txt", "v.txt") #this webpage stores the most up to date version number
+
+        my_file = open("v.txt","r")
+        txt = my_file.readline()
+
+        if float(txt) == 0.0170 : #this is the current file version number (0.0 followed by number of commits atm 170)
+            print("Up to date")
+        else:
+            print("Please update from our github repositry!")
+        my_file.close()
+
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
             # Set the x, y postions of the mouse click

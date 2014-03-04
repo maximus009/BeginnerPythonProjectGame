@@ -28,7 +28,7 @@ FPS = 60
 total_frames = 0
 playing = False
 dead = False
-
+update_check = False
 
 background = pygame.image.load("assets/images/background.bmp")
 player = Player(0,SCREENHEIGHT - 128,128,128,"assets/images/playerRight.bmp")
@@ -79,7 +79,8 @@ while True:
         clock.tick(FPS)
     else:
         if dead == False:
-            playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton)
+            playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check)
+            update_check = True
             keystrokes(player, playing)
         else:
             #Open up a menu with a retry option.
