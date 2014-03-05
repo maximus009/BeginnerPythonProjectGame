@@ -1,9 +1,13 @@
 Beginner Python Project Game
 ============================
 
-This is our beginner python project to make a game using Pygame.
+This branch has been created purely for dialouge and title scene development.
 
-So far we have a background and sprite displaying.
+This will be merged into the master branch after completion.
+
+This section is not open for feedback yet.
+
+ashdude1120 is managing this branch.
 
 How to Contribute
 =================
