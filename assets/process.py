@@ -48,7 +48,7 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update
         my_file = open("v.txt","r")
         txt = my_file.readline()
 
-        if float(txt) == 0.0170 : #this is the current file version number (0.0 followed by number of commits atm 170)
+        if float(txt) == 0.0173 : #this is the current file version number (0.0 followed by number of commits atm 170)
             print("Up to date")
         else:
             print("Please update from our github repositry!")
