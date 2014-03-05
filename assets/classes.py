@@ -1,6 +1,5 @@
-import pygame
-import math
-import time
+import pygame, math, time
+from const import *
 
 class BaseClass(pygame.sprite.Sprite):
     #List of ALL sprites. Used for collision detection and drawing.
@@ -52,8 +51,6 @@ class OpeningScene:
 			self.flags = 'W'
 			static = pygame.Surface((self.static_width, self.static_width))
 			self.scrolly = pygame.Surface((WIDTH, 5))
-			black = (0, 0, 0)
-			white = (255, 255, 255)
 			self.dark = pygame.Surface((WIDTH, HEIGHT)).convert()
 			self.dark.fill((0, 0, 0))
 			
@@ -62,7 +59,7 @@ class OpeningScene:
 			e = 0
 			y = 0
 			self.fade = 0
-			colors = [black, white] * (self.static_width * self.static_width // 2)
+			colors = [BLACK, WHITE] * (self.static_width * self.static_width // 2)
 			random.shuffle(colors)
 			i = 0
 			while y < self.static_width:
