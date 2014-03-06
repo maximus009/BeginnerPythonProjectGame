@@ -1,4 +1,9 @@
-import pygame, sys, urllib
+import pygame, sys
+
+try:
+    import urllib.request as urllib2
+except:
+    import urllib2
 
 def keystrokes(player, playing):
 
@@ -43,12 +48,15 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update
     pygame.display.flip()
 
     if update_check == False:
-        urllib.urlretrieve ("http://zipy124.github.io/BeginnerPythonProjectGame/v/version.txt", "v.txt") #this webpage stores the most up to date version number
-
+        url = "http://zipy124.github.io/BeginnerPythonProjectGame/v/version.txt"
+        file = urllib2.urlopen(url, None, 2.5)
+        data = file.read()
+        with open("v.txt", "wb") as code:
+            code.write(data)
         my_file = open("v.txt","r")
         txt = my_file.readline()
 
-        if float(txt) == 0.0173 : #this is the current file version number (0.0 followed by number of commits atm 170)
+        if float(txt) == 0.0176 : #this is the current file version number (0.0 followed by number of commits atm 170)
             print("Up to date")
         else:
             print("Please update from our github repositry!")
