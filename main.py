@@ -42,8 +42,6 @@ knockbacked = 0
 while True:
     if playing == True:
 
-        dead = False
-
         total_frames += 1 #Putting this at the beginning so other functions can use this.
 
         if knockbacked > 0:
