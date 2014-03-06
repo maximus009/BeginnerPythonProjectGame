@@ -1,4 +1,4 @@
-import pygame, sys, urllib.request
+import pygame, sys, urllib
 
 def keystrokes(player, playing):
 
@@ -43,7 +43,7 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update
     pygame.display.flip()
 
     if update_check == False:
-        urllib.request.urlretrieve ("http://zipy124.github.io/BeginnerPythonProjectGame/v/version.txt", "v.txt") #this webpage stores the most up to date version number
+        urllib.urlretrieve ("http://zipy124.github.io/BeginnerPythonProjectGame/v/version.txt", "v.txt") #this webpage stores the most up to date version number
 
         my_file = open("v.txt","r")
         txt = my_file.readline()
