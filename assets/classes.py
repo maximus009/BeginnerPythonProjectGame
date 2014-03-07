@@ -28,7 +28,7 @@ class PauseScene:
 		for event in events:
 			if event.down and event.action == 'start':
 				if 'M' in self.bg.flags:
-					playNoise('pause_sound')
+					#playNoise('pause_sound')
 					pygame.mixer.music.unpause()
 				self.next = self.bg
 				self.bg.next = self.bg
@@ -88,3 +88,9 @@ class Player(BaseClass):
 
 
         self.rect.y += self.vely
+
+        def reset(self, SCREENHEIGHT):
+            self.health = 100.00
+            self.rect.x = 0
+            self.rect.y = SCREENHEIGHT - 128
+            self.image = pygame.image.load("assets/images/playerRight.bmp")

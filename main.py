@@ -27,20 +27,24 @@ clock = pygame.time.Clock()
 FPS = 60
 total_frames = 0
 playing = False
-dead = False
 update_check = False
+dead = False
 
 background = pygame.image.load("assets/images/background.bmp")
 player = Player(0,SCREENHEIGHT - 128,128,128,"assets/images/playerRight.bmp")
+#pause = PauseScene(background)
 MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
 Button = BaseClass(280, 240, 80, 20, "assets/images/button.bmp")
 Spike = BaseClass(300, 400, 80, 80, "assets/images/spike.bmp")
 RetryButton = BaseClass(280,240,80,20,"assets/images/tryAgainButton.bmp")
 ExitButton = BaseClass(280,270,80,20,"assets/images/exitButton.bmp")
 knockbacked = 0
+
 #-------------Main Program Loop-----------------
 while True:
     if playing == True:
+
+        dead = False
 
         total_frames += 1 #Putting this at the beginning so other functions can use this.
 
@@ -63,7 +67,7 @@ while True:
         #HEALTH DRAW
         if player.health > 25:
             drawText(400, 444, "Health: " + str(int(player.health)), WHITE, "monospace", 36, screen)
-        elif player.health == 0:
+        elif player.health == 0.00:
             dead = True
         else:
             drawText(400, 444, "Health: " + str(int(player.health)), RED, "monospace", 36, screen)

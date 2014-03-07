@@ -41,6 +41,9 @@ def keystrokes(player, playing):
         pygame.quit() #closes pygame
         sys.exit() #closes actual program
 
+    if keyboard[pygame.K_TAB]:
+        print("WOOT")
+
 def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
