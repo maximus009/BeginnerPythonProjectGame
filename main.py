@@ -42,7 +42,7 @@ knockbacked = 0
 
 #-------------Main Program Loop-----------------
 while True:
-    if playing == True:
+    if playing:
 
         dead = False
 
@@ -73,14 +73,14 @@ while True:
             drawText(400, 444, "Health: " + str(int(player.health)), RED, "monospace", 36, screen)
 
         #Check if dead
-        if dead == True:
+        if dead:
             death_sound.play(0)
             playing = False
 
         pygame.display.flip()
         clock.tick(FPS)
     else:
-        if dead == False:
+        if not dead:
             playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check)
             update_check = True
             keystrokes(player, playing)
