@@ -46,8 +46,10 @@ def keystrokes(player, playing, update_version):
 
     if keyboard[pygame.K_LCTRL] and keyboard[pygame.K_d]:
         option = input()
-        if option == "update":
+        if option.lower() == "update":
             update_version()
+        elif option.lower() == "god": #not true god, but damn close enough just for fun ;)
+            player.health = 1000000
         option = ""
 
 def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check):
