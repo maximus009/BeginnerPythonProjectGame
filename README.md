@@ -33,6 +33,8 @@ Tab - Menu
 
 ESC - Exit
 
+LeftControl + d - debug menu(only option at the moment is update to update version.txt)
+
 Website
 ===========
 http://zipy124.github.io/BeginnerPythonProjectGame
