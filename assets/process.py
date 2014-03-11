@@ -5,7 +5,7 @@ try:
 except:
     import urllib2
 
-def keystrokes(player, playing):
+def keystrokes(player, playing, update_version):
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -43,6 +43,12 @@ def keystrokes(player, playing):
 
     if keyboard[pygame.K_TAB]:
         print("WOOT")
+
+    if keyboard[pygame.K_LCTRL] and keyboard[pygame.K_d]:
+        option = input()
+        if option == "update":
+            update_version()
+        option = ""
 
 def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check):
     screen.blit(MenuImage.image, (0,0) )

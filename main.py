@@ -5,6 +5,7 @@ sys.path.append(os.getcwd()+'/assets') #add our module to the path python search
 from classes import * #import our class module
 from process import * #Handles user input and our output.
 from const import * #All constants are held in here.
+from version_game import * #import version file updater
 
 if not pygame.font: print('ERROR: fonts are disabled for this session')
 if not pygame.mixer: print('ERROR: sounds are disabled for this session')
@@ -55,7 +56,7 @@ while True:
             knock_back = False
         
         if knock_back == False:
-            keystrokes(player, playing) #Handles Key Commands and Quitting
+            keystrokes(player, playing, update_version) #Handles Key Commands and Quitting
 
         #Handles Player Movement, including jumping.
         player.motion(SCREENWIDTH, SCREENHEIGHT)
@@ -76,15 +77,14 @@ while True:
         if dead:
             death_sound.play(0)
             playing = False
-
         pygame.display.flip()
         clock.tick(FPS)
     else:
         if not dead:
             playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check)
             update_check = True
-            keystrokes(player, playing)
+            keystrokes(player, playing, update_version)
         else:
             #Open up a menu with a retry option.
             playing = inGameMenu(BaseClass, screen, clock, FPS, MenuImage, RetryButton, ExitButton, player, SCREENHEIGHT)
-            keystrokes(player, playing)
+            keystrokes(player, playing, update_version)
