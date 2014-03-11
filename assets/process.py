@@ -135,6 +135,13 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
     else:
         return knockback
 
+def wall(wall,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT):
+    screen.blit(wall.image, (wall.x,wall.y))
+    if pygame.sprite.collide_rect(player, Spike):
+        player.velx = 0
+        player.vely = 0
+        player.motion(SCREENWIDTH, SCREENHEIGHT)
+
 def drawText(xpos, ypos, string, COLOUR, font_style, font_size, screen):
     txt = string
     txtfont = pygame.font.SysFont(font_style, font_size)
