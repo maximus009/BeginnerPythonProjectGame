@@ -64,6 +64,8 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update
 
         if float(txt) == float(txt2) : #this is the current file version number (0.0 followed by number of commits atm 170)
             print("Up to date")
+        elif float(txt) < float(txt2):
+            print("Web version file needs updating")
         else:
             print("Please update from our github repositry!")
         my_file.close()
