@@ -58,6 +58,7 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update
             code.write(data)
         my_file = open("v.txt","r")
         txt = my_file.readline()
+        my_file.close()
         
         my_file = open("version.txt","r")
         txt2 = my_file.readline()
