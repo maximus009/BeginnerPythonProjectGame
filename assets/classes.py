@@ -71,10 +71,13 @@ class Player(BaseClass):
 
         #Horizontal Constraints
         if predicted_location_x < 0:
+            if background.x < 640:
+                background.x -= self.velx #temp to limit to 1 screen width
             self.velx = 0
 
         elif predicted_location_x + self.width > SCREENWIDTH:
-            background.x -= self.velx
+            if background.x > -640:
+                background.x -= self.velx #temp to limit to 1 screen width
             self.velx = 0
 
         self.rect.x += self.velx
@@ -108,5 +111,7 @@ class background_class():
 
     def drawbackground(self,screen):
         screen.blit(self.image, (self.x,self.y))
-        if (self.x < 0) and (self.x <640):
+        if (self.x < 0) and (self.x > -640):
             screen.blit(self.image, (self.x+640,self.y))
+        if (self.x > 0) and (self.x < 640):
+            screen.blit(self.image, (self.x-640,self.y))
