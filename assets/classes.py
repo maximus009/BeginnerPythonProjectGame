@@ -115,26 +115,27 @@ class background_class():
 
     def drawbackground(self,screen):
         screen.blit(self.image, (self.x,self.y))
-        if (self.x < 0) and (self.x > -640):
+
+        if (self.x <= 0) and (self.x >= -640):
             screen.blit(self.image, (self.x+640,self.y)) #draws the right screen
 
-        if (self.x > 0) and (self.x < 640):
+        if (self.x >= 0) and (self.x <= 640):
             screen.blit(self.image, (self.x-640,self.y)) #draws the left screen
 
-        if (self.y < 0) and (self.y > -480):
+        if (self.y <= 0) and (self.y >= -480):
             screen.blit(self.image, (self.x,self.y+480)) #draws the bottom screen
 
-        if (self.y > 0) and (self.y < 480):
+        if (self.y >= 0) and (self.y <= 480):
             screen.blit(self.image, (self.x,self.y-480)) #draws the top screen
 
-        if ((self.y > 0) and (self.y < 480)) and ((self.x < 0) and (self.x > -640)):
+        if ((self.y >= 0) and (self.y <= 480)) and ((self.x <= 0) and (self.x >= -640)):
             screen.blit(self.image, (self.x+640,self.y-480)) #draws the top right screen
 
-        if ((self.y > 0) and (self.y < 480)) and ((self.x > 0) and (self.x < 640)):
+        if ((self.y >= 0) and (self.y <= 480)) and ((self.x >= 0) and (self.x <= 640)):
             screen.blit(self.image, (self.x-640,self.y-480))#draws the top left screen
 
-        if ((self.y < 0) and (self.y > -480)) and ((self.x < 0) and (self.x > -640)):
+        if ((self.y <= 0) and (self.y >= -480)) and ((self.x <= 0) and (self.x >= -640)):
             screen.blit(self.image, (self.x+640,self.y+480))#draws the bottom right screen
 
-        if ((self.y < 0) and (self.y > -480)) and ((self.x > 0) and (self.x < 640)):
+        if ((self.y <= 0) and (self.y >= -480)) and ((self.x >= 0) and (self.x <= 640)):
             screen.blit(self.image, (self.x-640,self.y+480))#draws the bottom left screen
