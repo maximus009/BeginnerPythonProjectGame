@@ -62,7 +62,7 @@ class Player(BaseClass):
         #Velocities of movement
         self.velx, self.vely = 0, 0
 
-    def motion(self, SCREENWIDTH, SCREENHEIGHT):
+    def motion(self, SCREENWIDTH, SCREENHEIGHT,background):
 
         #Predicts where image is going to be placed next to prevent going
         #Off of the screen a smidge.
@@ -74,8 +74,8 @@ class Player(BaseClass):
             self.velx = 0
 
         elif predicted_location_x + self.width > SCREENWIDTH:
+            background.x -= self.velx
             self.velx = 0
-
 
         self.rect.x += self.velx
 
@@ -94,3 +94,17 @@ class Player(BaseClass):
             self.rect.x = 0
             self.rect.y = SCREENHEIGHT - 128
             self.image = pygame.image.load("assets/images/playerRight.bmp")
+
+class background_class():
+
+    def __init__(self, x, y, width, height, image_path):
+        self.x = x
+        self.y = y
+
+        self.image = pygame.image.load(image_path)
+        self.rect = self.image.get_rect()
+        self.rect.x, self.rect.y = x, y
+        self.width, self.height = width, height
+
+    def drawbackground(self,screen):
+        screen.blit(self.image, (self.x,self.y))

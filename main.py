@@ -31,7 +31,7 @@ playing = False
 update_check = False
 dead = False
 
-background = pygame.image.load("assets/images/background.bmp")
+background = background_class(0,0,640,480,"assets/images/background.bmp")
 player = Player(0,SCREENHEIGHT - 128,128,128,"assets/images/playerRight.bmp")
 #pause = PauseScene(background)
 MenuImage = BaseClass(0, 0, 640, 480, "assets/images/menu.bmp")
@@ -59,12 +59,12 @@ while True:
             keystrokes(player, playing, update_version) #Handles Key Commands and Quitting
 
         #Handles Player Movement, including jumping.
-        player.motion(SCREENWIDTH, SCREENHEIGHT)
+        player.motion(SCREENWIDTH, SCREENHEIGHT,background)
         #DRAW
-        screen.blit(background, (0,0))
+        background.drawbackground(screen)
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
         #DRAWS SPIKE and checks for collision with player
-        knockbacked = spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbacked)
+        knockbacked = spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbacked,background)
         #HEALTH DRAW
         if player.health > 25:
             drawText(400, 444, "Health: " + str(int(player.health)), WHITE, "monospace", 36, screen)
