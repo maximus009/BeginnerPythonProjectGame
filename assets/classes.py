@@ -12,7 +12,7 @@ class BaseClass(pygame.sprite.Sprite):
         BaseClass.allsprites.add(self) #Adds sprite to allsprites, and images are displayed in main.py
 
         self.image = pygame.image.load(image_path)
-
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
         self.width, self.height = width, height

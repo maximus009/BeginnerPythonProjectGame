@@ -134,15 +134,19 @@ def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton, pla
 def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockback):
     screen.blit(Spike.image, (Spike.x,Spike.y))
     if pygame.sprite.collide_rect(player, Spike):
-        if player.velx > 0:
-            player.velx = -20
-        elif player.velx < 0:
-            player.velx = 20
+        if pygame.sprite.collide_mask(player, Spike):
+            print(pygame.sprite.collide_mask(player, Spike))
+            if player.velx > 0:
+                player.velx = -20
+            elif player.velx < 0:
+                player.velx = 20
+            else:
+                player.vely = -20
+            player.health -= 10
+            player.motion(SCREENWIDTH, SCREENHEIGHT)
+            return 5
         else:
-            player.vely = -20
-        player.health -= 10
-        player.motion(SCREENWIDTH, SCREENHEIGHT)
-        return 5
+            return knockback
     else:
         return knockback
 

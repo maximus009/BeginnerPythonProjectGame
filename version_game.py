@@ -1,8 +1,10 @@
+import decimal
 def update_version():
 	my_file = open("version.txt","r")
-	txt = float(my_file.readline())
+	txt = decimal.Decimal(my_file.readline())
 	my_file.close()
 	my_file = open("version.txt","w")
-	version = txt+0.0001
-	my_file.write(str(version))
+	number = 0.0001
+	version = txt+decimal.Decimal(number)
+	my_file.write(str(round(version,4)))
 	my_file.close()
