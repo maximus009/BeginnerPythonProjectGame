@@ -84,9 +84,13 @@ class Player(BaseClass):
 
         #Vertical Constraints
         if predicted_location_y < 0:
+            if background.y < 480:
+                background.y -= self.vely #temp to limit to 1 screen width
             self.vely = 0
 
         elif predicted_location_y + self.height > SCREENHEIGHT:
+            if background.y > -480:
+                background.y -= self.vely #temp to limit to 1 screen width
             self.vely = 0
 
 
@@ -115,3 +119,7 @@ class background_class():
             screen.blit(self.image, (self.x+640,self.y))
         if (self.x > 0) and (self.x < 640):
             screen.blit(self.image, (self.x-640,self.y))
+        if (self.y < 0) and (self.y > -480):
+            screen.blit(self.image, (self.x,self.y+480))
+        if (self.y > 0) and (self.y < 480):
+            screen.blit(self.image, (self.x,self.y-480))
