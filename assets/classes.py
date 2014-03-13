@@ -108,3 +108,5 @@ class background_class():
 
     def drawbackground(self,screen):
         screen.blit(self.image, (self.x,self.y))
+        if (self.x < 0) and (self.x <640):
+            screen.blit(self.image, (self.x+640,self.y))
