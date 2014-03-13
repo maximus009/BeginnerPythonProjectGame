@@ -152,10 +152,12 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
 
 def wall(wall,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT):
     screen.blit(wall.image, (wall.x,wall.y))
-    if pygame.sprite.collide_rect(player, Spike):
-        player.velx = 0
-        player.vely = 0
-        player.motion(SCREENWIDTH, SCREENHEIGHT)
+    if pygame.sprite.collide_rect(player, wall):
+        if pygame.sprite.collide_mask(player, wall):
+            print(pygame.sprite.collide_mask(player, wall))
+            player.velx = 0
+            player.vely = 0
+            player.motion(SCREENWIDTH, SCREENHEIGHT)
 
 def drawText(xpos, ypos, string, COLOUR, font_style, font_size, screen):
     txt = string

@@ -83,7 +83,7 @@ class Player(BaseClass):
         if predicted_location_y < 0:
             self.vely = 0
 
-        elif predicted_location_y + self.height > SCREENWIDTH:
+        elif predicted_location_y + self.height > SCREENHEIGHT:
             self.vely = 0
 
 
