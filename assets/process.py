@@ -143,21 +143,21 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
             else:
                 player.vely = -20
             player.health -= 10
-            player.motion(SCREENWIDTH, SCREENHEIGHT,background)
+            player.motion(SCREENWIDTH, SCREENHEIGHT,background,Spike)
             return 5
         else:
             return knockback
     else:
         return knockback
 
-def wall(wall,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT):
+def wall(wall,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,Spike):
     screen.blit(wall.image, (wall.x,wall.y))
     if pygame.sprite.collide_rect(player, wall):
         if pygame.sprite.collide_mask(player, wall):
             print(pygame.sprite.collide_mask(player, wall))
             player.velx = 0
             player.vely = 0
-            player.motion(SCREENWIDTH, SCREENHEIGHT,background)
+            player.motion(SCREENWIDTH, SCREENHEIGHT,background,Spike)
 
 def drawText(xpos, ypos, string, COLOUR, font_style, font_size, screen):
     txt = string

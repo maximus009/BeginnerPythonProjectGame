@@ -59,7 +59,7 @@ while True:
             keystrokes(player, playing, update_version) #Handles Key Commands and Quitting
 
         #Handles Player Movement, including jumping.
-        player.motion(SCREENWIDTH, SCREENHEIGHT,background)
+        player.motion(SCREENWIDTH, SCREENHEIGHT,background,Spike)
         #DRAW
         background.drawbackground(screen)
         Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
