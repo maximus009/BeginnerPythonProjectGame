@@ -135,13 +135,16 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
     screen.blit(Spike.image, (Spike.x,Spike.y))
     if pygame.sprite.collide_rect(player, Spike):
         if pygame.sprite.collide_mask(player, Spike):
-            print(pygame.sprite.collide_mask(player, Spike))
+            print("collision at",pygame.sprite.collide_mask(player, Spike))
             if player.velx > 0:
                 player.velx = -20
             elif player.velx < 0:
                 player.velx = 20
-            else:
+            elif player.vely > 0:
                 player.vely = -20
+            else:
+                player.vely = 20
+
             player.health -= 10
             player.motion(SCREENWIDTH, SCREENHEIGHT,background,Spike)
             return 5
@@ -154,7 +157,7 @@ def wall(wall,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,Spike):
     screen.blit(wall.image, (wall.x,wall.y))
     if pygame.sprite.collide_rect(player, wall):
         if pygame.sprite.collide_mask(player, wall):
-            print(pygame.sprite.collide_mask(player, wall))
+            print("collision at",pygame.sprite.collide_mask(player, wall))
             player.velx = 0
             player.vely = 0
             player.motion(SCREENWIDTH, SCREENHEIGHT,background,Spike)

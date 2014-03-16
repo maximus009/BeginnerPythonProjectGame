@@ -73,7 +73,6 @@ class Player(BaseClass):
         if predicted_location_x < 0:
             if background.x < 640:
                 background.x -= self.velx #temp to limit to 1 screen width
-            if background.x < 640:
                 spike.rect.x -= self.velx #temp to limit to 1 screen width
                 spike.x -= self.velx #temp to limit to 1 screen width
             self.velx = 0
@@ -81,7 +80,6 @@ class Player(BaseClass):
         elif predicted_location_x + self.width > SCREENWIDTH:
             if background.x > -640:
                 background.x -= self.velx #temp to limit to 1 screen width
-            if background.x > -640:
                 spike.rect.x -= self.velx #temp to limit to 1 screen width
                 spike.x -= self.velx #temp to limit to 1 screen width
             self.velx = 0
@@ -92,7 +90,6 @@ class Player(BaseClass):
         if predicted_location_y < 0:
             if background.y < 480:
                 background.y -= self.vely #temp to limit to 1 screen width
-            if background.y < 480:
                 spike.rect.y -= self.vely #temp to limit to 1 screen width
                 spike.y -= self.vely #temp to limit to 1 screen width
             self.vely = 0
@@ -100,7 +97,6 @@ class Player(BaseClass):
         elif predicted_location_y + self.height > SCREENHEIGHT:
             if background.y > -480:
                 background.y -= self.vely #temp to limit to 1 screen width
-            if background.y > -480:
                 spike.rect.y -= self.vely #temp to limit to 1 screen width
                 spike.y -= self.vely #temp to limit to 1 screen width
             self.vely = 0
