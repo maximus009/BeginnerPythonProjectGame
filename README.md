@@ -5,6 +5,8 @@ This is our beginner python project to make a game using Pygame.
 
 So far we have a background and sprite displaying.
 
+We now have a forum where you can discuss this project over at http://beginnerpythonprojectgame.freeforums.org/
+
 How to Contribute
 =================
 Visit this page for installation instructions for Python 3, PyGame and git: https://github.com/zipy124/BeginnerPythonProjectGame/wiki/Getting-Started
