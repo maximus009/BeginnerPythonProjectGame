@@ -1,5 +1,5 @@
 import pygame
-
+#this is the base class for all our sprites and handles positions sizes and such
 class BaseClass(pygame.sprite.Sprite):
     #List of ALL sprites. Used for collision detection and drawing.
     allsprites = pygame.sprite.Group()
@@ -16,7 +16,7 @@ class BaseClass(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
         self.width, self.height = width, height
-
+#this is our WIP for the pause menu
 class PauseScene:
 	def __init__(self, bg):
 		self.bg = bg
@@ -47,7 +47,7 @@ class PauseScene:
 		x = 128 - img.get_width() // 2
 		y = 112 - img.get_height() // 2
 		screen.blit(img, (x, y))
-        
+#This is the class for the player and handles health and movement  
 class Player(BaseClass):
 
     health = 100.00
@@ -62,6 +62,9 @@ class Player(BaseClass):
         #Velocities of movement
         self.velx, self.vely = 0, 0
 
+    def shoot(self):
+        #do something
+    #this handles movement and the constaints on the edges of the map
     def motion(self, SCREENWIDTH, SCREENHEIGHT,background,spike):
 
         #Predicts where image is going to be placed next to prevent going
@@ -109,7 +112,7 @@ class Player(BaseClass):
             self.rect.x = 0
             self.rect.y = SCREENHEIGHT - 128
             self.image = pygame.image.load("assets/images/playerRight.bmp")
-
+#this handles the backgrounds so we can move from 1 tile to another.
 class background_class():
 
     def __init__(self, x, y, width, height, image_path):

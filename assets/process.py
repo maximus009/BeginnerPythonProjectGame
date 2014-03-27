@@ -4,7 +4,7 @@ try:
     import urllib.request as urllib2
 except:
     import urllib2
-
+#This function checks if the user has pressed a keyboard key
 def keystrokes(player, playing, update_version):
 
     for event in pygame.event.get():
@@ -37,6 +37,9 @@ def keystrokes(player, playing, update_version):
     else:
         player.vely = 0
 
+    if keyboard[pygame.K_SPACE]:
+        player.shoot()
+
     if keyboard[pygame.K_ESCAPE]:
         pygame.quit() #closes pygame
         sys.exit() #closes actual program
@@ -51,7 +54,8 @@ def keystrokes(player, playing, update_version):
         elif option.lower() == "god": #not true god, but damn close enough just for fun ;)
             player.health = 1000000
         option = ""
-
+#This function is what displays the mainmenu. It handles anything related to it such as the mouse clicking buttons etc...
+#This also handles version checking
 def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
@@ -79,7 +83,7 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update
             print("Please update from our github repositry!")
         my_file.close()
 
-    for event in pygame.event.get():
+    for event in pygame.event.get(): #This checks if the user has clicked on the button or not
         if event.type == pygame.MOUSEBUTTONDOWN:
             # Set the x, y postions of the mouse click
             mouseX, mouseY = pygame.mouse.get_pos()
@@ -100,7 +104,7 @@ def mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update
             sys.exit() #closes actual program
             
     return False
-
+#This is like the main menu function but instead is for the in-game menu for if you die or eventually if you pause the game.
 def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton, player, SCREENHEIGHT):
     screen.blit(MenuImage.image, (0,0) )
     screen.blit(Button.image, (280,230) )
@@ -130,7 +134,7 @@ def inGameMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton, pla
             sys.exit() #closes actual program
             
     return False
-
+#This function handles collision checking for the spike which will eventually be adapted into an obstacle class
 def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockback,background):
     screen.blit(Spike.image, (Spike.x,Spike.y))
     if pygame.sprite.collide_rect(player, Spike):
@@ -152,7 +156,7 @@ def spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbac
             return knockback
     else:
         return knockback
-
+#This is an example function for a wall object. It is currently not in use
 def wall(wall,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,Spike):
     screen.blit(wall.image, (wall.x,wall.y))
     if pygame.sprite.collide_rect(player, wall):
@@ -161,7 +165,7 @@ def wall(wall,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,Spike):
             player.velx = 0
             player.vely = 0
             player.motion(SCREENWIDTH, SCREENHEIGHT,background,Spike)
-
+#this is the function to draw text
 def drawText(xpos, ypos, string, COLOUR, font_style, font_size, screen):
     txt = string
     txtfont = pygame.font.SysFont(font_style, font_size)
