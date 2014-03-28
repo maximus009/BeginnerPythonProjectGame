@@ -37,8 +37,8 @@ def keystrokes(player, playing, update_version):
     else:
         player.vely = 0
 
-    if keyboard[pygame.K_SPACE]:
-        player.shoot()
+    #if keyboard[pygame.K_SPACE]:
+        #player.shoot()
 
     if keyboard[pygame.K_ESCAPE]:
         pygame.quit() #closes pygame

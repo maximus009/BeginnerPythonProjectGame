@@ -62,9 +62,6 @@ class Player(BaseClass):
         #Velocities of movement
         self.velx, self.vely = 0, 0
 
-    def shoot(self):
-        #do something
-    #this handles movement and the constaints on the edges of the map
     def motion(self, SCREENWIDTH, SCREENHEIGHT,background,spike):
 
         #Predicts where image is going to be placed next to prevent going
