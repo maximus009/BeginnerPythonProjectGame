@@ -113,22 +113,24 @@ class Player(BaseClass):
     def shoot(self,bullet):
         bullet.rect.x = self.rect.x
         bullet.rect.y = self.rect.y
+        bullet.vely = 0
+        bullet.velx = 0
         if self.vely > 0:
-            bullet.vely +=10
+            bullet.vely =10
             if self.velx > 0:
-                bullet.velx += 10
+                bullet.velx = 10
             elif self.velx < 0:
-                bullet.velx -= 10
+                bullet.velx = -10
         elif self.vely < 0:
-            bullet.vely -= 10
+            bullet.vely = -10
             if self.velx > 0:
-                bullet.velx += 10
+                bullet.velx = 10
             elif self.velx < 0:
-                bullet.velx -= 10
+                bullet.velx = -10
         elif self.velx > 0:
-            bullet.velx += 10
+            bullet.velx = 10
         elif self.velx < 0:
-            bullet.velx -= 10
+            bullet.velx = -10
 
 #this handles the backgrounds so we can move from 1 tile to another.
 class background_class():
