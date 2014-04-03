@@ -40,6 +40,7 @@ Spike = BaseClass(300, 400, 80, 80, "assets/images/spike.bmp")
 RetryButton = BaseClass(280,240,80,20,"assets/images/tryAgainButton.bmp")
 ExitButton = BaseClass(280,270,80,20,"assets/images/exitButton.bmp")
 knockbacked = 0
+bullet = bullet(-20,-20,20,20,"assets/images/bullet.bmp")
 
 #-------------Main Program Loop-----------------
 while True:
@@ -56,13 +57,15 @@ while True:
             knock_back = False
         
         if knock_back == False:
-            keystrokes(player, playing, update_version) #Handles Key Commands and Quitting
+            keystrokes(player, playing, update_version,bullet) #Handles Key Commands and Quitting
 
         #Handles Player Movement, including jumping.
+        bullet.motion()
         player.motion(SCREENWIDTH, SCREENHEIGHT,background,Spike)
         #DRAW
         background.drawbackground(screen)
-        Player.PlayersList.draw(screen) #Draws all sprites from the Player class.
+        Player.PlayersList.draw(screen)
+        bullet.bullet_list.draw(screen) #Draws all sprites from the Player class.
         #DRAWS SPIKE and checks for collision with player
         knockbacked = spike(Spike,screen,clock,FPS,player,pygame,SCREENWIDTH,SCREENHEIGHT,knockbacked,background)
         #HEALTH DRAW
@@ -83,8 +86,8 @@ while True:
         if not dead:
             playing = mainMenu(BaseClass, screen, clock, FPS, MenuImage, Button, ExitButton,update_check)
             update_check = True
-            keystrokes(player, playing, update_version)
+            keystrokes(player, playing, update_version,bullet)
         else:
             #Open up a menu with a retry option.
             playing = inGameMenu(BaseClass, screen, clock, FPS, MenuImage, RetryButton, ExitButton, player, SCREENHEIGHT)
-            keystrokes(player, playing, update_version)
+            keystrokes(player, playing, update_version,bullet)

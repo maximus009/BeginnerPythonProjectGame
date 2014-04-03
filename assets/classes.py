@@ -109,6 +109,27 @@ class Player(BaseClass):
             self.rect.x = 0
             self.rect.y = SCREENHEIGHT - 128
             self.image = pygame.image.load("assets/images/playerRight.bmp")
+
+    def shoot(self,bullet):
+        bullet.rect.x = self.rect.x
+        bullet.rect.y = self.rect.y
+        if self.vely > 0:
+            bullet.vely +=10
+            if self.velx > 0:
+                bullet.velx += 10
+            elif self.velx < 0:
+                bullet.velx -= 10
+        elif self.vely < 0:
+            bullet.vely -= 10
+            if self.velx > 0:
+                bullet.velx += 10
+            elif self.velx < 0:
+                bullet.velx -= 10
+        elif self.velx > 0:
+            bullet.velx += 10
+        elif self.velx < 0:
+            bullet.velx -= 10
+
 #this handles the backgrounds so we can move from 1 tile to another.
 class background_class():
 
@@ -147,3 +168,17 @@ class background_class():
 
         if ((self.y <= 0) and (self.y >= -480)) and ((self.x >= 0) and (self.x <= 640)):
             screen.blit(self.image, (self.x-640,self.y+480))#draws the bottom left screen
+
+class bullet(BaseClass):
+    bullet_list = pygame.sprite.Group()
+    def __init__(self, x, y, width, height, image_path):
+        
+        #Calls BaseClass so images can be loaded, etc..
+        BaseClass.__init__(self, x, y, width, height, image_path)
+        Player.PlayersList.add(self)
+
+        #Velocities of movement
+        self.velx, self.vely = 0, 0
+    def motion(self):
+        self.rect.x += self.velx
+        self.rect.y += self.vely

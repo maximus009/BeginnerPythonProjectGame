@@ -5,7 +5,7 @@ try:
 except:
     import urllib2
 #This function checks if the user has pressed a keyboard key
-def keystrokes(player, playing, update_version):
+def keystrokes(player, playing, update_version,bullet):
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -37,8 +37,8 @@ def keystrokes(player, playing, update_version):
     else:
         player.vely = 0
 
-    #if keyboard[pygame.K_SPACE]:
-        #player.shoot()
+    if keyboard[pygame.K_SPACE]:
+        player.shoot(bullet)
 
     if keyboard[pygame.K_ESCAPE]:
         pygame.quit() #closes pygame
